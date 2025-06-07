@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.querySelector('.contact-form');
     
     if (contactForm) {
-        /*contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form values
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitButton.textContent = originalText;
             }, 1500);
         });
-    }*/
+    }
     
     // Skill Icon Animation on Hover
     const skillItems = document.querySelectorAll('.skill-item');
