@@ -157,8 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Form Submission
-    const contactForm = document.querySelector('.contact-form');
+    const contactForm = document.querySelector('.contact-form' );
     
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -172,14 +171,14 @@ if (contactForm) {
         
         // Simple form validation
         if (!name || !email || !subject || !message) {
-            alert('Please fill in all fields');
+            showFormStatus('Please fill in all fields', 'error');
             return;
         }
         
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address');
+            showFormStatus('Please enter a valid email address', 'error');
             return;
         }
         
@@ -188,6 +187,7 @@ if (contactForm) {
         
         submitButton.disabled = true;
         submitButton.innerHTML = '<span class="btn-text">Sending...</span>';
+        showFormStatus('Sending your message...', 'loading');
         
         // Create FormData object
         const formData = new FormData();
@@ -195,10 +195,11 @@ if (contactForm) {
         formData.append('email', email);
         formData.append('subject', subject);
         formData.append('message', message);
-        formData.append('_subject', `New message from ${name} - ${subject}`);
+        formData.append('_subject', `Portfolio Contact: ${subject} - from ${name}`);
+        formData.append('_captcha', 'false');
         
         // Send to Formspree
-        fetch('https://formspree.io/f/xpwaqjqr', {
+        fetch('https://formspree.io/f/mqalzlbl', {
             method: 'POST',
             body: formData,
             headers: {
@@ -207,21 +208,21 @@ if (contactForm) {
         } )
         .then(response => {
             if (response.ok) {
-                alert(`Thank you for your message, ${name}! Your message has been sent successfully. I'll get back to you soon.`);
+                showFormStatus(`Thank you, ${name}! Your message has been sent successfully. I'll get back to you soon.`, 'success');
                 contactForm.reset();
             } else {
                 response.json().then(data => {
                     if (Object.hasOwnProperty.call(data, 'errors')) {
-                        alert('Oops! There was a problem submitting your form: ' + data.errors.map(error => error.message).join(', '));
+                        showFormStatus('Error: ' + data.errors.map(error => error.message).join(', '), 'error');
                     } else {
-                        alert('Oops! There was a problem submitting your form');
+                        showFormStatus('There was a problem sending your message. Please try again.', 'error');
                     }
                 });
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Oops! There was a problem submitting your form. Please try again.');
+            showFormStatus('Network error. Please check your connection and try again.', 'error');
         })
         .finally(() => {
             submitButton.disabled = false;
@@ -229,6 +230,33 @@ if (contactForm) {
         });
     });
 }
+
+// Function to show form status messages
+function showFormStatus(message, type) {
+    const statusDiv = document.getElementById('form-status');
+    if (statusDiv) {
+        statusDiv.textContent = message;
+        statusDiv.className = `form-status status-${type}`;
+        statusDiv.style.display = 'block';
+        
+        // Auto-hide success messages after 5 seconds
+        if (type === 'success') {
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+}
+
+// Handle success redirect
+window.addEventListener('load', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        showFormStatus('Thank you! Your message has been sent successfully.', 'success');
+        // Remove the success parameter from URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+});
 
     
     // Skill Icon Animation on Hover
