@@ -160,38 +160,76 @@ document.addEventListener('DOMContentLoaded', function() {
     // Form Submission
     const contactForm = document.querySelector('.contact-form');
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Simple form validation
-            if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields');
-                return;
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Simple form validation
+        if (!name || !email || !subject || !message) {
+            alert('Please fill in all fields');
+            return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address');
+            return;
+        }
+        
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+        
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span class="btn-text">Sending...</span>';
+        
+        // Create FormData object
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('subject', subject);
+        formData.append('message', message);
+        formData.append('_subject', `New message from ${name} - ${subject}`);
+        
+        // Send to Formspree
+        fetch('https://formspree.io/f/xpwaqjqr', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
             }
-            
-            // Simulate form submission
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            
-            // Simulate API call with timeout
-            setTimeout(() => {
-                alert(`Thank you for your message, ${name}! This is a demo form, so no actual message was sent.`);
+        } )
+        .then(response => {
+            if (response.ok) {
+                alert(`Thank you for your message, ${name}! Your message has been sent successfully. I'll get back to you soon.`);
                 contactForm.reset();
-                submitButton.disabled = false;
-                submitButton.textContent = originalText;
-            }, 1500);
+            } else {
+                response.json().then(data => {
+                    if (Object.hasOwnProperty.call(data, 'errors')) {
+                        alert('Oops! There was a problem submitting your form: ' + data.errors.map(error => error.message).join(', '));
+                    } else {
+                        alert('Oops! There was a problem submitting your form');
+                    }
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Oops! There was a problem submitting your form. Please try again.');
+        })
+        .finally(() => {
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalText;
         });
-    }
+    });
+}
+
     
     // Skill Icon Animation on Hover
     const skillItems = document.querySelectorAll('.skill-item');
