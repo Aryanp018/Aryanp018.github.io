@@ -942,127 +942,248 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Projects</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Explore my latest work in AI/ML and software development</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-image">
-                        <img src="images/project-marketpulse.png" alt="MarketPulse: Real-Time Stock Trend Predictor" class="project-img">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>MarketPulse: Real-Time Stock Trend Predictor</h3>
-                        <div class="project-tags">
-                            <span class="tag">LSTM</span>
-                            <span class="tag">GRU</span>
-                            <span class="tag">Streamlit</span>
-                        </div>
-                        <p>Built and trained LSTM/GRU models on OHLCV data; achieved ~80% directional accuracy across selected stocks. Developed a Streamlit-based dashboard for real-time trend prediction; reduced update latency by ~25%.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image">
-                        <img src="images/project-docuquery.png" alt="DocuQuery: Fullstack Semantic Search Engine" class="project-img">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>DocuQuery: Fullstack Semantic Search Engine</h3>
-                        <div class="project-tags">
-                            <span class="tag">LLaMA 2</span>
-                            <span class="tag">LangChain</span>
-                            <span class="tag">FAISS</span>
-                        </div>
-                        <p>Developed a context-aware document query system using LLaMA 2, LangChain, and FAISS. Integrated OpenAI embeddings to improve retrieval; increased relevance of top results by ~30%. Reduced average query latency through prompt and vector optimization.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-image">
-                        <img src="images/project-timenet.png" alt="TimeNet: Sequence Forecasting with RNNs" class="project-img">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>TimeNet: Sequence Forecasting with RNNs</h3>
-                        <div class="project-tags">
-                            <span class="tag">RNN</span>
-                            <span class="tag">TensorFlow</span>
-                            <span class="tag">Time Series</span>
-                        </div>
-                        <p>Designed RNN models for rainfall and energy consumption forecasting using historical data. Streamlined data pipelines with TensorFlow, reducing training time by ~20%. Validated performance against ARIMA models, achieving ~15–20% higher precision.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-image">
-                        <img src="images/project-rag.png" alt="Optimizing Retrieval-Augmented Generation (RAG) with Reinforcement Learning" class="project-img">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Research Paper</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Optimizing RAG with Reinforcement Learning</h3>
-                        <div class="project-tags">
-                            <span class="tag">PPO</span>
-                            <span class="tag">RAG</span>
-                            <span class="tag">SQuAD/NQ</span>
-                        </div>
-                        <p>Building a custom PPO-based framework to enhance document retrieval in RAG systems. Evaluating retrieval relevance using BLEU and Exact Match on SQuAD/NQ datasets. Implementing a novel reward function that balances relevance and diversity.</p>
-                    </div>
-                </div>
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Explore my latest work in AI/ML, Reinforcement Learning, and Fullstack Development</p>
+    </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-image">
-                        <img src="images/project-timenet.png" alt="SkyDefender: 3D Shooter & Duck Hunt Game" class="project-img">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                                <a href="#" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>SkyDefender: 3D Shooter & Duck Hunt Game</h3>
-                        <div class="project-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">OpenGL</span>
-                            <span class="tag">GLUT</span>
-                            <span class="tag">Game Engine</span>
-                            <span class="tag">SOIL</span>
-                            <span class="tag">irrKlang</span>
-                        </div>
-                        <p> Wrote a full <b>3D game engine</b> in C++ with OpenGL/GLUT, featuring <b>skybox rendering</b>, 
-      <b>parallax environments</b>, and <b>multi-level progression</b>. Implemented drone pathing and 
-      <b>probabilistic duck spawning</b> with integrated <b>collision detection</b>. Optimized graphics/audio 
-      subsystems (SOIL, irrKlang) to sustain <b>~60 FPS</b> across complex scenes.</p>
-                    </div>
-                </div>
+    <div class="projects-grid">
+
+      <!-- MarketPulse -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-image">
+          <img src="images/project-marketpulse.png" alt="MarketPulse: Real-Time Stock Trend Predictor" class="project-img">
+          <div class="project-overlay">
+            <div class="project-links">
+              <a href="https://github.com/Aryanp018/Stock_Predictor" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
             </div>
+          </div>
         </div>
-    </section>
+        <div class="project-content">
+          <h3>MarketPulse: Real-Time Stock Trend Predictor</h3>
+          <div class="project-tags">
+            <span class="tag">LSTM</span>
+            <span class="tag">GRU</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">AWS</span>
+          </div>
+          <p>Designed LSTM/GRU models achieving ~80% directional accuracy on OHLCV data. Deployed using TensorFlow Serving on AWS with vector embeddings, reducing query latency by 20%.</p>
+        </div>
+      </div>
+
+      <!-- DocuQuery -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="project-image">
+          <img src="images/project-docuquery.png" alt="DocuQuery: Fullstack Semantic Search Engine" class="project-img">
+          <div class="project-overlay">
+            <div class="project-links">
+              <a href="#" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>DocuQuery: Fullstack Semantic Search Engine</h3>
+          <div class="project-tags">
+            <span class="tag">LLaMA-2</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">FAISS</span>
+            <span class="tag">Streamlit</span>
+          </div>
+          <p>Built a context-aware search system using LLaMA-2, LangChain, and FAISS. Integrated OpenAI embeddings to boost relevance by ~30% and deployed as a Dockerized Streamlit microservice.</p>
+        </div>
+      </div>
+
+      <!-- CollabBoard -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="project-image">
+          <img src="images/project-collabboard.png" alt="CollabBoard" class="project-img">
+        </div>
+        <div class="project-content">
+          <h3>CollabBoard – Real-Time Team Collaboration Platform</h3>
+          <div class="project-tags">
+            <span class="tag">React.js</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">WebSockets</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">AWS</span>
+          </div>
+          <p>Developed a production-ready collaboration app supporting 1,000+ concurrent users with real-time WebSocket updates, AWS CI/CD deployment, and authentication-based role control.</p>
+        </div>
+      </div>
+
+      <!-- Personal Finance Management -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="project-image">
+          <img src="images/project-finance.png" alt="Personal Finance Management Platform" class="project-img">
+        </div>
+        <div class="project-content">
+          <h3>Personal Finance Management Platform</h3>
+          <div class="project-tags">
+            <span class="tag">React.js</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">D3.js</span>
+            <span class="tag">Chart.js</span>
+          </div>
+          <p>Built a full-stack finance tracking system using React.js, Node.js, and PostgreSQL. Integrated Plaid API for secure bank transactions and real-time analytics visualizations.</p>
+        </div>
+      </div>
+
+      <!-- YOLOv5 Object Detection -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="project-image">
+          <img src="images/project-yolo.png" alt="Real-Time Object Detection using YOLOv5" class="project-img">
+        </div>
+        <div class="project-content">
+          <h3>Real-Time Object Detection using YOLOv5</h3>
+          <div class="project-tags">
+            <span class="tag">YOLOv5</span>
+            <span class="tag">TensorRT</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">COCO</span>
+          </div>
+          <p>Implemented YOLOv5 on COCO dataset achieving 85% mAP. Optimized inference by 30% using TensorRT acceleration and integrated OpenCV for 30 FPS real-time tracking.</p>
+        </div>
+      </div>
+
+      <!-- CDPC Management -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="350">
+        <div class="project-image">
+          <img src="images/project-cdpc.png" alt="CDPC Management" class="project-img">
+        </div>
+        <div class="project-content">
+          <h3>CDPC Management System</h3>
+          <div class="project-tags">
+            <span class="tag">React.js</span>
+            <span class="tag">AWS Lambda</span>
+            <span class="tag">API Gateway</span>
+          </div>
+          <p>Developed a React-based career management system that reduced manual workload by 50% and improved efficiency by 30%. Integrated AWS Lambda & API Gateway for 99.9% uptime.</p>
+        </div>
+      </div>
+
+      <!-- Web 3.0 App -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="project-image">
+          <img src="images/project-web3.png" alt="Web 3.0 App" class="project-img">
+        </div>
+        <div class="project-content">
+          <h3>Web 3.0 App – Decentralized NFT Marketplace</h3>
+          <div class="project-tags">
+            <span class="tag">React.js</span>
+            <span class="tag">Solidity</span>
+            <span class="tag">AWS</span>
+          </div>
+          <p>Engineered a decentralized NFT marketplace using Solidity and AWS, handling $10,000+ in digital assets. Designed a gas-free smart contract system to eliminate fees entirely.</p>
+        </div>
+      </div>
+
+      <!-- Deep Learning Image Classification -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="450">
+        <div class="project-image">
+          <img src="images/project-cnn.png" alt="Deep Learning for Image Classification" class="project-img">
+        </div>
+        <div class="project-content">
+          <h3>Deep Learning for Image Classification</h3>
+          <div class="project-tags">
+            <span class="tag">CNN</span>
+            <span class="tag">ResNet</span>
+            <span class="tag">TensorFlow</span>
+          </div>
+          <p>Developed CNN and ResNet architectures for MNIST and CIFAR-10 datasets, increasing accuracy from 85% to 98%. Enhanced performance with data augmentation and hyperparameter tuning.</p>
+        </div>
+      </div>
+
+      <!-- NdLinear Benchmark -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="project-image">
+          <img src="images/project-ndlinear.png" alt="NdLinear Benchmarking for Reinforcement Learning" class="project-img">
+        </div>
+        <div class="project-content">
+          <h3>NdLinear Benchmarking for Reinforcement Learning</h3>
+          <div class="project-tags">
+            <span class="tag">NdLinear</span>
+            <span class="tag">REINFORCE</span>
+            <span class="tag">CartPole</span>
+            <span class="tag">LunarLander</span>
+          </div>
+          <p>Benchmarked NdLinear layers against nn.Linear in RL tasks. Achieved faster convergence, higher stability, and smoother reward curves across CartPole-v1 and LunarLander-v2 environments.</p>
+        </div>
+      </div>
+
+      <!-- TimeNet -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="550">
+        <div class="project-image">
+          <img src="images/project-timenet.png" alt="TimeNet" class="project-img">
+        </div>
+        <div class="project-content">
+          <h3>TimeNet: Sequence Forecasting with RNNs</h3>
+          <div class="project-tags">
+            <span class="tag">RNN</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">Forecasting</span>
+          </div>
+          <p>Developed RNN models for rainfall and energy forecasting, outperforming ARIMA by 15–20%. Optimized data pipeline and reduced training time by 20%.</p>
+        </div>
+      </div>
+
+      <!-- Article Summarizer -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="project-image">
+          <img src="images/project-summarizer.png" alt="Article Summarizer" class="project-img">
+        </div>
+        <div class="project-content">
+          <h3>Article Summarizer</h3>
+          <div class="project-tags">
+            <span class="tag">NLP</span>
+            <span class="tag">Summarization</span>
+            <span class="tag">Sentiment Analysis</span>
+          </div>
+          <p>Developed an NLP-based summarizer reducing text length by 80% while maintaining 95% accuracy in sentiment analysis. Used advanced algorithms for text compression and semantic scoring.</p>
+        </div>
+      </div>
+
+      <!-- SkyDefender -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="650">
+        <div class="project-image">
+          <img src="images/project-skydefender.png" alt="SkyDefender 3D Game" class="project-img">
+        </div>
+        <div class="project-content">
+          <h3>SkyDefender: 3D Shooter & Duck Hunt Game</h3>
+          <div class="project-tags">
+            <span class="tag">C++</span>
+            <span class="tag">OpenGL</span>
+            <span class="tag">GLUT</span>
+            <span class="tag">SOIL</span>
+            <span class="tag">irrKlang</span>
+          </div>
+          <p>Developed a 3D OpenGL-based duck shooting game with parallax environments, pathfinding drones, and collision detection. Achieved ~60 FPS through optimized audio-visual subsystems.</p>
+        </div>
+      </div>
+
+      <!-- RAG with RL -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="700">
+        <div class="project-image">
+          <img src="images/project-rag.png" alt="Optimizing RAG with Reinforcement Learning" class="project-img">
+        </div>
+        <div class="project-content">
+          <h3>Optimizing Retrieval-Augmented Generation (RAG) with Reinforcement Learning</h3>
+          <div class="project-tags">
+            <span class="tag">PPO</span>
+            <span class="tag">RAG</span>
+            <span class="tag">SQuAD/NQ</span>
+            <span class="tag">Evaluation</span>
+          </div>
+          <p>Designed a custom PPO-based RL framework improving RAG retrieval relevance by 20–25%. Integrated BLEU and Exact Match metrics for robust evaluation and generalization.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- Education Section -->
     <section id="education" class="section">
