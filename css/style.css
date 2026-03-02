@@ -1282,3 +1282,36 @@ footer {
     transform: translateY(-3px);
 }
 
+.blog-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.blog-post {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  line-height: 1.7;
+}
+
+.blog-card {
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  transition: transform 0.2s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+}
+
+.blog-meta {
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+.blog-subtitle {
+  opacity: 0.7;
+}
