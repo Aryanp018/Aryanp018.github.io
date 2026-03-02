@@ -4,36 +4,123 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | Aryan Patodiya</title>
+
+  <!-- Your main stylesheet -->
   <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Icons (needed for theme toggle + mobile icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS (Animate on Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- (Optional) If your site uses a favicon -->
+  <!-- <link rel="icon" href="../images/favicon.ico" /> -->
 </head>
+
 <body>
 
-  <nav class="navbar">
-    <a href="../index.html">Home</a>
-    <a href="./index.html" class="active">Blog</a>
-  </nav>
+  <!-- Header Section (Matches your main site header) -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <a href="../index.html#hero">AP</a>
+        </div>
 
-  <section class="blog-container">
-    <h1>Blog</h1>
-    <p class="blog-subtitle">
-      Thoughts on ML systems, reinforcement learning, RAG, and scalable AI.
-    </p>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="../index.html#about" data-aos="fade-down" data-aos-delay="100">About</a></li>
+            <li><a href="../index.html#skills" data-aos="fade-down" data-aos-delay="200">Skills</a></li>
+            <li><a href="../index.html#experience" data-aos="fade-down" data-aos-delay="300">Experience</a></li>
+            <li><a href="../index.html#projects" data-aos="fade-down" data-aos-delay="400">Projects</a></li>
+            <li><a href="../index.html#education" data-aos="fade-down" data-aos-delay="500">Education</a></li>
 
-    <div class="blog-card">
-      <h2>
-        <a href="./posts/rl-for-rag.html">
-          Reinforcement Learning for RAG:
-          Bandits for Retrieval + RL for Generation
-        </a>
-      </h2>
-      <p class="blog-meta">March 2026 • RL • RAG • Systems</p>
-      <p>
-        A framework for turning static RAG pipelines into adaptive,
-        reward-driven learning systems.
-      </p>
+            <!-- Blog (current page) -->
+            <li><a href="./index.html" data-aos="fade-down" data-aos-delay="600">Blog</a></li>
+
+            <li><a href="../index.html#contact" data-aos="fade-down" data-aos-delay="700">Contact</a></li>
+          </ul>
+
+          <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+          </div>
+
+          <div class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
     </div>
+  </header>
 
+  <!-- Hero (needed because your JS creates particles inside #hero) -->
+  <section id="hero">
+    <div class="container">
+      <div style="padding: 120px 0 40px;">
+        <h1 data-aos="fade-up">Blog</h1>
+        <p data-aos="fade-up" data-aos-delay="100" style="max-width: 800px;">
+          Writing about ML systems, reinforcement learning, RAG, engineering decisions, and the weird parts of building things that actually work.
+        </p>
+
+        <!-- IMPORTANT:
+             Your JS initializes Typed() on #role-typewriter unconditionally.
+             This hidden element prevents runtime errors on the blog page. -->
+        <span id="role-typewriter" style="display:none;">Developer</span>
+      </div>
+    </div>
   </section>
+
+  <!-- Blog Listing -->
+  <section id="blog-list" style="padding: 30px 0 80px;">
+    <div class="container">
+
+      <!-- Post Card -->
+      <article data-aos="fade-up" style="
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 22px;
+        margin-bottom: 18px;
+        backdrop-filter: blur(8px);
+      ">
+        <h2 style="margin-top: 0;">
+          <a href="./posts/rl-for-rag.html" style="text-decoration: none;">
+            RL for RAG: Bandits for Retrieval + GRPO for Generator
+          </a>
+        </h2>
+
+        <p style="opacity: 0.75; margin-top: 6px;">
+          March 2026 • RL • RAG • Systems
+        </p>
+
+        <p style="margin-bottom: 0; max-width: 900px;">
+          A practical framework for turning static RAG into an adaptive system: multi-armed bandits for retrieval strategy selection and RL-style optimization for the generator.
+        </p>
+
+        <div style="margin-top: 14px;">
+          <a href="./posts/rl-for-rag.html" class="btn" style="display:inline-flex; align-items:center; gap:10px;">
+            <span class="btn-text">Read Post</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- You can add more posts by copying the <article> block above -->
+
+    </div>
+  </section>
+
+  <!-- Back to Top (required by your JS) -->
+  <button class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts (order matters) -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.min.js"></script>
+
+  <!-- Your main JS -->
+  <script src="../js/main.js"></script>
 
 </body>
 </html>
