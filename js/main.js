@@ -17,25 +17,21 @@ document.addEventListener('DOMContentLoaded', function() {
         nameElement.classList.remove('typewriter');
     }
     
-    // Typewriter Animation for Role (only if element exists)
-    const roleEl = document.querySelector('#role-typewriter');
-    if (roleEl && typeof Typed !== 'undefined') {
-        new Typed('#role-typewriter', {
-            strings: ['Developer', 'Engineer', 'Researcher', 'Innovator'],
-            typeSpeed: 80,
-            backSpeed: 50,
-            backDelay: 2000,
-            loop: true,
-            showCursor: false
-        });
-    }
+    // Typewriter Animation for Role
+    const roleTypewriter = new Typed('#role-typewriter', {
+        strings: ['Developer', 'Engineer', 'Researcher', 'Innovator'],
+        typeSpeed: 80,
+        backSpeed: 50,
+        backDelay: 2000,
+        loop: true,
+        showCursor: false
+    });
     
     // Sticky Header
     const header = document.getElementById('header');
     const scrollThreshold = 100;
     
     window.addEventListener('scroll', function() {
-        if (!header) return;
         if (window.scrollY > scrollThreshold) {
             header.classList.add('scrolled');
         } else {
@@ -45,9 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Back to Top Button
     const backToTopButton = document.querySelector('.back-to-top');
-
+    
     window.addEventListener('scroll', function() {
-        if (!backToTopButton) return;
         if (window.scrollY > 500) {
             backToTopButton.classList.add('show');
         } else {
@@ -55,14 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    if (backToTopButton) {
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
-    }
+    });
     
     // Smooth Scrolling for Navigation Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -135,13 +128,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.toggle('no-scroll');
     }
     
-    if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-    }
+    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
     
-    const mobileMenuClose = document.querySelector('.mobile-menu-close');
-    if (mobileMenuClose) mobileMenuClose.addEventListener('click', toggleMobileMenu);
-    if (overlay) overlay.addEventListener('click', toggleMobileMenu);
+    document.querySelector('.mobile-menu-close').addEventListener('click', toggleMobileMenu);
+    overlay.addEventListener('click', toggleMobileMenu);
     
     // Theme Toggle (Light/Dark Mode)
     const themeToggle = document.querySelector('.theme-toggle');
@@ -155,29 +145,17 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
     
-    const themeToggle = document.querySelector('.theme-toggle');
-    const body = document.body;
-    
-    const savedTheme = localStorage.getItem('theme');
-    
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-theme');
-        if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    }
-    
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            body.classList.toggle('dark-theme');
-    
-            if (body.classList.contains('dark-theme')) {
-                localStorage.setItem('theme', 'dark');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            }
-        });
-    }
+    themeToggle.addEventListener('click', function() {
+        body.classList.toggle('dark-theme');
+        
+        if (body.classList.contains('dark-theme')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    });
     
     const contactForm = document.querySelector('.contact-form' );
     
@@ -359,7 +337,6 @@ window.addEventListener('load', function() {
     // Particle Animation in Hero Section
     function createParticles() {
         const heroSection = document.getElementById('hero');
-        if (!heroSection) return;
         const particleContainer = document.createElement('div');
         particleContainer.className = 'particles-container';
         
@@ -396,4 +373,3 @@ window.addEventListener('load', function() {
     
     createParticles();
 });
-
