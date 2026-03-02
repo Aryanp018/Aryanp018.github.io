@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RL for RAG | Aryan Patodiya</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<body>
 
+  <nav class="navbar">
+    <a href="../../index.html">Home</a>
+    <a href="../index.html">Blog</a>
+  </nav>
+
+  <section class="blog-post">
+
+    <h1>Reinforcement Learning for RAG:
+      Bandits for Retrieval + RL for Generation</h1>
+
+    <p class="blog-meta">March 2026 • Aryan Patodiya</p>
+
+    <hr>
+
+    <h2>The Problem</h2>
+    <p>
+      Most Retrieval-Augmented Generation (RAG) systems treat retrieval as static.
+      The retriever fetches documents using fixed parameters (k, reranker, embedding model),
+      and the generator produces an answer.
+    </p>
+
+    <p>
+      But retrieval quality depends on:
+    </p>
+
+    <ul>
+      <li>Query type</li>
+      <li>Domain specificity</li>
+      <li>Latency constraints</li>
+      <li>Downstream task reward</li>
+    </ul>
+
+    <p>
+      A static pipeline cannot adapt to these variations.
+    </p>
+
+    <h2>Core Idea</h2>
+
+    <p>
+      Treat retrieval as a <strong>multi-armed bandit</strong> problem.
+    </p>
+
+    <ul>
+      <li>Each arm = a retrieval strategy (k, source mix, reranking policy, etc.)</li>
+      <li>Reward = downstream generation quality</li>
+      <li>Bandit balances exploration vs exploitation</li>
+    </ul>
+
+    <p>
+      Then optimize the generator using reinforcement learning (e.g., GRPO),
+      with rewards shaped by correctness, helpfulness, citations, or cost.
+    </p>
+
+    <h2>Closed Feedback Loop</h2>
+
+    <p>
+      Retrieval influences generation quality.
+      Generation reward updates retrieval strategy.
+    </p>
+
+    <p>
+      The result: an adaptive RAG system that improves over time instead of degrading.
+    </p>
+
+    <h2>Why This Matters</h2>
+
+    <ul>
+      <li>Cost-aware retrieval policies</li>
+      <li>Dynamic document selection</li>
+      <li>Personalized retrieval behavior</li>
+      <li>Long-horizon system optimization</li>
+    </ul>
+
+    <hr>
+
+    <h2>Comments</h2>
+
+    <!-- Optional: Add Giscus later -->
+
+  </section>
+
+</body>
+</html>
