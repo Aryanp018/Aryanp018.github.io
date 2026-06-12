@@ -1,1362 +1,835 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aryan Patodiya | AIML Developer</title>
-    <meta name="description" content="Portfolio of Aryan Patodiya, an AIML Developer specializing in machine learning, deep learning, and cloud infrastructure.">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Devicon for Tech Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    
-    <!-- AOS Animation Library -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/image-fix.css">
-    <link rel="stylesheet" href="css/dark-theme.css">
-    <link rel="stylesheet" href="css/direct-fix.css">
-    <link rel="stylesheet" href="css/project-fix.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aryan Patodiya — ML Engineer & Researcher</title>
+<meta name="description" content="Aryan Patodiya. Machine learning engineer and researcher working on LLMs, retrieval-augmented generation, reinforcement learning, and ML systems.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta property="og:title" content="Aryan Patodiya — ML Engineer & Researcher">
+<meta property="og:description" content="LLMs, RAG, reinforcement learning, and ML systems.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<style>
+:root{
+  --bg:#FDF6EB;
+  --bg2:#FBEAD3;
+  --ink:#2A1710;
+  --dim:#7A6253;
+  --faint:#A89280;
+  --glass:rgba(255,255,255,.66);
+  --glass-brd:rgba(150,86,40,.18);
+  --yellow:#FFC11E;
+  --orange:#FF7A1A;
+  --red:#E63525;
+  --copper:#C2672D;
+  --ember:#B23A1F;
+  --grad:linear-gradient(120deg,#FFC11E,#FF7A1A 42%,#E63525 76%,#C2672D);
+  --grad-btn:linear-gradient(120deg,#FF9A1A,#E63525);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--ink);
+  line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--orange);color:#fff}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:"Space Grotesk",sans-serif;line-height:1.08;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.mono{font-family:"JetBrains Mono",monospace}
+
+/* warm sunrise washes */
+.mesh{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);will-change:transform}
+.b1{width:48vw;height:48vw;left:-6vw;top:-10vw;background:radial-gradient(circle,rgba(255,193,30,.55),transparent 66%);animation:drift1 22s ease-in-out infinite}
+.b2{width:44vw;height:44vw;right:-8vw;top:-4vw;background:radial-gradient(circle,rgba(255,122,26,.5),transparent 66%);animation:drift2 26s ease-in-out infinite}
+.b3{width:42vw;height:42vw;left:16vw;bottom:-14vw;background:radial-gradient(circle,rgba(230,53,37,.34),transparent 66%);animation:drift3 30s ease-in-out infinite}
+.b4{width:30vw;height:30vw;right:10vw;bottom:2vw;background:radial-gradient(circle,rgba(194,103,45,.4),transparent 66%);animation:drift1 28s ease-in-out infinite reverse}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6vw,5vw) scale(1.12)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-7vw,6vw) scale(1.1)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(5vw,-6vw) scale(1.15)}}
+.grid-overlay{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(150,86,40,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(150,86,40,.06) 1px,transparent 1px);
+  background-size:60px 60px;
+  -webkit-mask-image:radial-gradient(ellipse 100% 80% at 50% 30%,#000,transparent 78%);
+  mask-image:radial-gradient(ellipse 100% 80% at 50% 30%,#000,transparent 78%)}
+.vignette{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 36%,transparent 45%,rgba(150,70,30,.12) 100%)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:3}
+
+#connector{position:absolute;top:0;left:0;width:100%;z-index:1;pointer-events:none;overflow:visible}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;background:var(--grad);
+  box-shadow:0 0 16px rgba(255,122,26,.6)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:90;transition:.4s var(--ease);border-bottom:1px solid transparent}
+header.scrolled{background:rgba(253,246,235,.72);backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--glass-brd)}
+nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{font-family:"Space Grotesk";font-weight:700;font-size:18px;letter-spacing:-.03em;display:flex;align-items:center;gap:10px}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--grad);box-shadow:0 0 14px var(--orange);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{font-family:"JetBrains Mono";font-size:12.5px;color:var(--dim);padding:8px 12px;border-radius:8px;transition:.25s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-links a.active{background:rgba(255,122,26,.1)}
+.nav-links a.active::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:2px;background:var(--grad);border-radius:2px}
+.nav-cta{color:#fff!important;background:var(--grad-btn);padding:9px 16px!important;border-radius:9px;font-weight:600;box-shadow:0 8px 22px -8px var(--red)}
+.nav-cta:hover{filter:brightness(1.06)}
+.nav-cta::after{display:none!important}
+.burger{display:none;background:var(--glass);border:1px solid var(--glass-brd);color:var(--ink);width:42px;height:42px;border-radius:10px;cursor:pointer;font-size:16px}
+
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:130px 0 90px}
+#constellation{position:absolute;inset:0;z-index:1;width:100%;height:100%}
+#hero .wrap{z-index:4}
+.tagpill{font-family:"JetBrains Mono";font-size:12.5px;display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;
+  border:1px solid var(--glass-brd);background:var(--glass);backdrop-filter:blur(8px);padding:8px 16px;border-radius:100px;width:max-content;max-width:100%;box-shadow:0 6px 20px -12px rgba(178,58,31,.5)}
+.tagpill .live{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange);animation:pulse 1.8s infinite}
+.tagpill span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
+#hero h1{font-size:clamp(2.8rem,8vw,6rem);font-weight:700;letter-spacing:-.045em;margin-bottom:6px;line-height:.98}
+.gradient-text{background:linear-gradient(120deg,#FFC11E,#FF7A1A,#E63525,#C2672D,#FFC11E);
+  background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:hue 8s linear infinite}
+@keyframes hue{to{background-position:300% 0}}
+.hero-role{font-family:"JetBrains Mono";font-size:clamp(1.05rem,2.8vw,1.6rem);color:var(--dim);margin:8px 0 26px;min-height:1.6em}
+.hero-role .cursor{color:var(--red);font-weight:700;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+#hero p.lede{font-size:clamp(1rem,2vw,1.2rem);color:var(--dim);max-width:580px;margin-bottom:38px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:42px}
+.btn{font-family:"JetBrains Mono";font-size:14px;font-weight:600;padding:14px 26px;border-radius:12px;cursor:pointer;
+  transition:.28s var(--ease);display:inline-flex;align-items:center;gap:10px;border:1px solid transparent;will-change:transform;position:relative}
+.btn-primary{background:var(--grad-btn);color:#fff;box-shadow:0 12px 34px -10px var(--red)}
+.btn-primary:hover{box-shadow:0 16px 42px -8px var(--orange)}
+.btn-ghost{background:var(--glass);color:var(--ink);border:1px solid var(--glass-brd);backdrop-filter:blur(8px)}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange);box-shadow:0 8px 24px -10px var(--orange)}
+.hero-socials{display:flex;gap:12px}
+.hero-socials a{width:46px;height:46px;display:grid;place-items:center;border-radius:12px;border:1px solid var(--glass-brd);
+  color:var(--dim);background:var(--glass);backdrop-filter:blur(8px);transition:.28s var(--ease)}
+.hero-socials a:hover{color:#fff;transform:translateY(-4px);border-color:transparent;background:var(--grad-btn);box-shadow:0 10px 26px -8px var(--red)}
+.scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:4;font-family:"JetBrains Mono";font-size:11px;color:var(--faint);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollcue .bar{width:2px;height:42px;background:linear-gradient(var(--orange),transparent);border-radius:2px;animation:cue 1.8s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+section{position:relative;padding:120px 0;z-index:2}
+.eyebrow{font-family:"JetBrains Mono";font-size:13px;margin-bottom:14px;display:flex;align-items:center;gap:12px;font-weight:600;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;width:max-content}
+.eyebrow::before{content:"";width:30px;height:2px;background:var(--grad);border-radius:2px}
+.s-title{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:700;letter-spacing:-.03em;margin-bottom:18px}
+.s-intro{color:var(--dim);max-width:600px;margin-bottom:56px;font-size:1.06rem}
+
+.reveal{opacity:0;transform:translateY(30px);transition:.85s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+.card{position:relative;border:1px solid var(--glass-brd);background:var(--glass);border-radius:16px;
+  backdrop-filter:blur(10px);transition:transform .2s var(--ease),border-color .3s,box-shadow .3s;
+  transform-style:preserve-3d;overflow:hidden;box-shadow:0 10px 30px -22px rgba(120,60,20,.5)}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .35s;pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,122,26,.2),rgba(255,193,30,.12) 38%,transparent 62%)}
+.card:hover::before{opacity:1}
+.card:hover{border-color:rgba(178,58,31,.32);box-shadow:0 28px 60px -28px rgba(178,58,31,.4)}
+
+.about{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start}
+.about-photo{position:relative}
+.about-photo .frame{position:relative;border-radius:18px;overflow:hidden;padding:3px;background:var(--grad)}
+.about-photo .frame img{width:100%;aspect-ratio:411/532;object-fit:cover;border-radius:15px;display:block}
+.about-badge{position:absolute;bottom:-18px;right:-14px;background:#fff;border:1px solid var(--glass-brd);
+  border-radius:14px;padding:14px 18px;text-align:center;box-shadow:0 20px 40px -20px rgba(120,60,20,.5);z-index:3}
+.about-badge .n{font-family:"Space Grotesk";font-size:1.8rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-badge .l{font-family:"JetBrains Mono";font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+.about-text p{color:var(--dim);margin-bottom:18px}
+.about-text p strong{color:var(--ink)}
+.about-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0}
+.about-card{padding:18px}
+.about-card i{font-size:18px;margin-bottom:10px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-card h4{font-size:14px;margin-bottom:4px}
+.about-card span{font-family:"JetBrains Mono";font-size:11.5px;color:var(--dim)}
+
+.skill-group{margin-bottom:34px}
+.skill-group h3{font-family:"JetBrains Mono";font-size:13px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.skill-group h3::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--grad)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--glass-brd);background:var(--glass);border-radius:11px;
+  padding:9px 15px;font-size:13.5px;transition:.25s var(--ease);cursor:default;backdrop-filter:blur(6px);box-shadow:0 6px 16px -14px rgba(120,60,20,.6)}
+.chip i{font-size:16px}
+.chip .ico{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.chip:hover{transform:translateY(-3px);border-color:rgba(255,122,26,.5);box-shadow:0 12px 24px -14px var(--orange)}
+
+.tl{position:relative;padding-left:36px}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--grad);border-radius:2px;opacity:.7}
+.tl-item{position:relative;margin-bottom:36px}
+.tl-item::before{content:"";position:absolute;left:-36px;top:8px;width:16px;height:16px;border-radius:50%;background:var(--bg);
+  border:2px solid var(--orange);box-shadow:0 0 0 4px rgba(255,122,26,.14),0 0 12px var(--orange)}
+.tl-card{padding:22px 24px}
+.tl-card:hover{transform:translateX(5px)}
+.tl-head{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.tl-logo{width:48px;height:48px;border-radius:12px;background:#fff;display:grid;place-items:center;overflow:hidden;flex-shrink:0;padding:6px;border:1px solid var(--glass-brd)}
+.tl-logo img{object-fit:contain;max-height:100%}
+.tl-logo.ph{background:var(--grad);color:#fff;font-family:"Space Grotesk";font-weight:700;font-size:15px;border:none}
+.tl-head h3{font-size:1.12rem}
+.tl-head .sub{font-family:"JetBrains Mono";font-size:12.5px;color:var(--copper);margin-top:3px;font-weight:500}
+.tl-period{font-family:"JetBrains Mono";font-size:11.5px;color:var(--faint);margin-top:4px}
+.tl-card ul{list-style:none}
+.tl-card li{color:var(--dim);font-size:.95rem;padding-left:20px;position:relative;margin-bottom:8px}
+.tl-card li::before{content:"▸";position:absolute;left:0;color:var(--orange);font-size:11px;top:2px}
+
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.proj{display:flex;flex-direction:column}
+.proj:hover{transform:translateY(-8px)}
+.proj-viz{position:relative;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--glass-brd)}
+.proj-viz svg{width:100%;height:100%;display:block}
+.proj-cat{position:absolute;top:12px;left:12px;font-family:"JetBrains Mono";font-size:10px;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--ink);background:rgba(255,255,255,.85);backdrop-filter:blur(6px);padding:5px 10px;border-radius:7px;border:1px solid var(--glass-brd)}
+.proj-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.proj-body h3{font-size:1.08rem;margin-bottom:12px;line-height:1.25}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.tag{font-family:"JetBrains Mono";font-size:10.5px;color:var(--copper);background:rgba(194,103,45,.1);border:1px solid rgba(194,103,45,.3);padding:3px 8px;border-radius:6px}
+.proj-body p{color:var(--dim);font-size:.9rem;flex:1}
+.proj-link{margin-top:14px;font-family:"JetBrains Mono";font-size:12.5px;color:var(--red);display:inline-flex;align-items:center;gap:8px;transition:.2s;align-self:flex-start;font-weight:500}
+.proj-link:hover{gap:12px;color:var(--orange)}
+
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.edu{padding:24px}
+.edu-head{display:flex;gap:16px;align-items:center;margin-bottom:14px}
+.edu-logo{width:56px;height:56px;border-radius:13px;background:#fff;display:grid;place-items:center;padding:7px;flex-shrink:0;border:1px solid var(--glass-brd)}
+.edu-logo img{object-fit:contain;max-height:100%}
+.edu h3{font-size:1.1rem}
+.edu .deg{font-family:"JetBrains Mono";font-size:12.5px;color:var(--copper);margin-top:4px;font-weight:500}
+.edu .meta{font-family:"JetBrains Mono";font-size:11.5px;color:var(--faint);margin:6px 0 12px}
+.edu .course{color:var(--dim);font-size:.9rem}
+.edu .course b{color:var(--ink)}
+
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
+.contact-info .ci{display:flex;gap:16px;align-items:center;margin-bottom:24px}
+.ci-ico{width:50px;height:50px;border-radius:13px;border:1px solid var(--glass-brd);background:var(--glass);display:grid;place-items:center;font-size:17px;flex-shrink:0}
+.ci-ico i{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ci .l{font-family:"JetBrains Mono";font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
+.ci .v{font-size:.98rem;color:var(--ink)}
+.contact-socials{display:flex;gap:12px;margin-top:8px}
+.contact-socials a{width:48px;height:48px;border-radius:12px;border:1px solid var(--glass-brd);background:var(--glass);display:grid;place-items:center;color:var(--dim);transition:.28s var(--ease)}
+.contact-socials a:hover{color:#fff;transform:translateY(-4px);border-color:transparent;background:var(--grad-btn)}
+form{padding:30px}
+.fg{margin-bottom:18px}
+.fg label{font-family:"JetBrains Mono";font-size:12px;color:var(--dim);display:block;margin-bottom:8px}
+.fg input,.fg textarea{width:100%;background:rgba(255,255,255,.7);border:1px solid var(--glass-brd);border-radius:11px;padding:13px 15px;color:var(--ink);font-family:"Inter";font-size:.95rem;transition:.25s;resize:vertical}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,122,26,.18)}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--faint)}
+form .btn-primary{width:100%;justify-content:center}
+
+footer{border-top:1px solid var(--glass-brd);padding:42px 0;position:relative;z-index:3}
+.foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.foot-links{display:flex;gap:18px}
+.foot-links a{font-family:"JetBrains Mono";font-size:12.5px;color:var(--dim);transition:.2s}
+.foot-links a:hover{color:var(--orange)}
+.foot .copy{font-family:"JetBrains Mono";font-size:12px;color:var(--faint)}
+
+.totop{position:fixed;bottom:26px;right:26px;width:48px;height:48px;border-radius:13px;z-index:80;background:var(--grad-btn);color:#fff;border:none;display:grid;place-items:center;cursor:pointer;
+  opacity:0;transform:translateY(14px);transition:.3s var(--ease);box-shadow:0 12px 30px -10px var(--red)}
+.totop.show{opacity:1;transform:none}
+
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:rgba(253,246,235,.98);backdrop-filter:blur(16px);padding:16px;gap:4px;border-bottom:1px solid var(--glass-brd)}
+  .nav-links.open a{width:100%;padding:12px}
+  .burger{display:grid;place-items:center}
+  .about{grid-template-columns:1fr;gap:60px}
+  .about-photo{max-width:300px}
+  .proj-grid{grid-template-columns:repeat(2,1fr)}
+  .edu-grid,.contact{grid-template-columns:1fr}
+  .about-cards{grid-template-columns:1fr}
+  section{padding:84px 0}
+}
+@media(max-width:560px){
+  .proj-grid{grid-template-columns:1fr}
+  .wrap{padding:0 20px}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .btn{width:100%;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001s!important;transition-duration:.001s!important}
+  .reveal{opacity:1;transform:none}
+  .blob{animation:none}
+}
+
+/* count-up stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px;border-top:1px solid var(--glass-brd);padding-top:34px}
+.stat-n{font-family:"Space Grotesk";font-weight:700;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat-l{font-family:"JetBrains Mono";font-size:12px;color:var(--dim);margin-top:8px}
+@media(max-width:560px){.stats{grid-template-columns:1fr 1fr;gap:24px}}
+/* giant outlined section number watermark */
+.s-watermark{position:absolute;top:40px;right:3%;font-family:"Space Grotesk";font-weight:700;font-size:clamp(6rem,15vw,14rem);line-height:.8;color:transparent;-webkit-text-stroke:1.6px rgba(178,58,31,.13);z-index:0;pointer-events:none;user-select:none}
+@media(max-width:700px){.s-watermark{display:none}}
+
+/* ---- decorative SVG graphics ---- */
+.decor{position:absolute;z-index:0;pointer-events:none;will-change:transform}
+.decor .di{display:block}
+.decor.floaty .di{animation:floaty 7s ease-in-out infinite}
+.decor.spin-slow .di{animation:spin 26s linear infinite}
+.decor.spin-rev .di{animation:spin 32s linear infinite reverse}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-16px) rotate(10deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.title-flourish{display:block;margin:-6px 0 30px;overflow:visible}
+.hero-orbit{position:absolute;right:-30px;top:50%;transform:translateY(-50%);z-index:2;opacity:.55;pointer-events:none;max-width:44vw;height:auto}
+@media(max-width:900px){.hero-orbit{display:none}}
+.footer-wave{position:absolute;top:-28px;left:0;width:100%;height:56px;opacity:.55;pointer-events:none}
+@media(max-width:700px){#connector{display:none}.decor{display:none}}
+
+.tl-logo,.edu-logo{position:relative}
+.fbk{position:absolute;inset:0;display:grid;place-items:center;font-family:"Space Grotesk";font-weight:700;font-size:11px;letter-spacing:.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tl-logo img,.edu-logo img{position:relative;z-index:1;background:#fff}
+
+/* click ember burst + cursor trail + letter ignite */
+.burst-sp{position:fixed;width:7px;height:7px;border-radius:50%;pointer-events:none;z-index:99;
+  animation:burst .7s cubic-bezier(.16,.84,.44,1) forwards}
+@keyframes burst{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+.trail-dot{position:fixed;width:5px;height:5px;border-radius:50%;pointer-events:none;z-index:98;
+  animation:traildot .8s ease-out forwards}
+@keyframes traildot{0%{transform:scale(1);opacity:.7}100%{transform:translateY(-14px) scale(.2);opacity:0}}
+.ltr{display:inline-block;transition:transform .22s cubic-bezier(.22,.61,.36,1),text-shadow .22s;cursor:default}
+.ltr:hover{transform:translateY(-9px) rotate(-5deg) scale(1.08);text-shadow:0 8px 24px rgba(255,122,26,.6)}
+@media(prefers-reduced-motion:reduce){.burst-sp,.trail-dot{display:none}.ltr:hover{transform:none}}
+</style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header id="header">
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <a href="#hero">AP</a>
-                </div>
-                <div class="nav-links-container">
-                    <ul class="nav-links">
-                        <li><a href="#about" data-aos="fade-down" data-aos-delay="100">About</a></li>
-                        <li><a href="#skills" data-aos="fade-down" data-aos-delay="200">Skills</a></li>
-                        <li><a href="#experience" data-aos="fade-down" data-aos-delay="300">Experience</a></li>
-                        <li><a href="#projects" data-aos="fade-down" data-aos-delay="400">Projects</a></li>
-                        <li><a href="#education" data-aos="fade-down" data-aos-delay="500">Education</a></li>
-                        <li><a href="./blog/index.html" data-aos="fade-down" data-aos-delay="600">Blog</a></li>
-                        <li><a href="#contact" data-aos="fade-down" data-aos-delay="700">Contact</a></li>
-                    </ul>
-                    <div class="theme-toggle">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <div class="mobile-menu-toggle">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+<div class="mesh"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div></div>
+<div class="grid-overlay"></div>
+<div class="vignette"></div>
+<div class="progress" id="progress"></div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="section">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
-                    <h1>Hi, I'm <span class="highlight typewriter" id="name-typewriter">Aryan Patodiya</span></h1>
-                    <h2 class="profession-text">AIML <span class="typewriter" id="role-typewriter">Developer</span></h2>
-                    <p class="hero-description">Building impactful, scalable AI solutions with expertise in machine learning, deep learning, and cloud infrastructure.</p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn primary-btn">View Projects</a>
-                        <a href="#contact" class="btn secondary-btn">Contact Me</a>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/aryanpatodiya08/" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/Aryanp018" class="social-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="profile-image-container">
-                        <div class="profile-image">
-                            <img src="images/IMG_9527.jpg" alt="Aryan Patodiya">
-                        </div>
-                        <div class="profile-bg-circle"></div>
-                        <div class="floating-icon icon-1"><i class="devicon-python-plain colored"></i></div>
-                        <div class="floating-icon icon-2"><i class="devicon-tensorflow-original colored"></i></div>
-                        <div class="floating-icon icon-3"><i class="devicon-pytorch-original colored"></i></div>
-                        <div class="floating-icon icon-4"><i class="devicon-amazonwebservices-plain-wordmark colored"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="scroll-down">
-                <a href="#about">
-                    <div class="mouse">
-                        <div class="wheel"></div>
-                    </div>
-                    <div class="arrow">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="hero-bg-elements">
-            <div class="particle particle-1"></div>
-            <div class="particle particle-2"></div>
-            <div class="particle particle-3"></div>
-            <div class="particle particle-4"></div>
-            <div class="particle particle-5"></div>
-        </div>
-    </section>
+<svg id="connector" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFC11E"><animate attributeName="stop-color" values="#FFC11E;#FF7A1A;#E63525;#C2672D;#FFC11E" dur="9s" repeatCount="indefinite"/></stop>
+      <stop offset="0.5" stop-color="#FF7A1A"><animate attributeName="stop-color" values="#FF7A1A;#E63525;#C2672D;#FFC11E;#FF7A1A" dur="9s" repeatCount="indefinite"/></stop>
+      <stop offset="1" stop-color="#E63525"><animate attributeName="stop-color" values="#E63525;#C2672D;#FFC11E;#FF7A1A;#E63525" dur="9s" repeatCount="indefinite"/></stop>
+    </linearGradient>
+    <filter id="lineGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path id="conn-track" fill="none" stroke="rgba(150,86,40,.14)" stroke-width="2"/>
+  <path id="conn-path" fill="none" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round" filter="url(#lineGlow)"/>
+  <path id="conn-hot" fill="none" stroke="url(#lineGrad)" stroke-width="5.5" stroke-linecap="round" filter="url(#lineGlow)" opacity=".9"/>
+  <g id="conn-nodes"></g>
+  <g id="conn-sparks"></g>
+  <circle id="conn-comet" r="6" fill="#FFE08A" filter="url(#lineGlow)" opacity="0"/>
+</svg>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>About Me</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="about-content">
-                <div class="about-image" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="about-image-container">
-                        <img src="images/IMG_9527.jpg" alt="Aryan Patodiya">
-                        <div class="experience-badge">
-                            <span class="years">1.5+</span>
-                            <span class="text">Years<br>Experience</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-text" data-aos="fade-left" data-aos-duration="1000">
-                    <p>Graduate Computer Science student with ~1.5 years of hands-on experience through research, internships, and startup work in machine learning, backend development, and cloud infrastructure.</p>
-                    <p>Built end-to-end ML pipelines at ISRO, deployed real-time systems using AWS and Azure, and developed LLM-based applications for document search and forecasting. Skilled in Python, C++, deep learning frameworks, and MLOps tools.</p>
-                    <p>Eager to contribute to impactful, scalable AI solutions that solve real-world problems and drive innovation.</p>
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <div class="highlight-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="highlight-text">
-                                <h3>Education</h3>
-                                <p>MS in Computer Science</p>
-                            </div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-icon">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <div class="highlight-text">
-                                <h3>Experience</h3>
-                                <p>ISRO, Raven Technolabs, NanoTech Technologies</p>
-                            </div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="highlight-text">
-                                <h3>Projects</h3>
-                                <p>ML/AI Applications</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="assets/ResumeAryanPatodiya.pdf" class="btn primary-btn" download>Download Resume</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<header id="header"><div class="wrap"><nav>
+  <a href="#hero" class="brand"><span class="dot"></span>Aryan Patodiya</a>
+  <div class="nav-links" id="navlinks">
+    <a href="#about">about</a><a href="#skills">skills</a><a href="#experience">experience</a>
+    <a href="#projects">projects</a><a href="#education">education</a>
+    <a href="./blog/index.html">blog</a><a href="#contact" class="nav-cta">contact</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+</nav></div></header>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Skills & Expertise</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="skills-content">
-                <!-- Programming Skills -->
-                <div class="skills-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Programming</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-python-plain colored"></i>
-                            </div>
-                            <span class="skill-name">Python</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Python</h4>
-                                    <p>Primary language for ML/AI development</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 95%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-java-plain colored"></i>
-                            </div>
-                            <span class="skill-name">Java</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Java</h4>
-                                    <p>Backend development & enterprise applications</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-cplusplus-plain colored"></i>
-                            </div>
-                            <span class="skill-name">C++</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>C++</h4>
-                                    <p>Performance-critical applications & algorithms</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-mysql-plain colored"></i>
-                            </div>
-                            <span class="skill-name">SQL</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>SQL</h4>
-                                    <p>Database querying & management</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-javascript-plain colored"></i>
-                            </div>
-                            <span class="skill-name">JavaScript</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>JavaScript</h4>
-                                    <p>Web development & interactive applications</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-typescript-plain colored"></i>
-                            </div>
-                            <span class="skill-name">TypeScript</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>TypeScript</h4>
-                                    <p>Type-safe JavaScript development</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Machine Learning & Deep Learning Skills -->
-                <div class="skills-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Machine Learning & Deep Learning</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-pytorch-plain colored"></i>
-                            </div>
-                            <span class="skill-name">PyTorch</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>PyTorch</h4>
-                                    <p>Deep learning research & development</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-tensorflow-original colored"></i>
-                            </div>
-                            <span class="skill-name">TensorFlow</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>TensorFlow</h4>
-                                    <p>Production ML systems & deployment</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-opencv-plain colored"></i>
-                            </div>
-                            <span class="skill-name">OpenCV</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>OpenCV</h4>
-                                    <p>Computer vision applications</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-numpy-original colored"></i>
-                            </div>
-                            <span class="skill-name">Transformers</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Transformers</h4>
-                                    <p>NLP models & applications</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <span class="skill-name">GPT</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>GPT</h4>
-                                    <p>Large language model applications</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-network-wired"></i>
-                            </div>
-                            <span class="skill-name">CNNs</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>CNNs</h4>
-                                    <p>Computer vision & image processing</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-recycle"></i>
-                            </div>
-                            <span class="skill-name">RNNs</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>RNNs</h4>
-                                    <p>Sequence modeling & time series</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-language"></i>
-                            </div>
-                            <span class="skill-name">LLMs</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>LLMs</h4>
-                                    <p>Large language model development</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-gamepad"></i>
-                            </div>
-                            <span class="skill-name">RL</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Reinforcement Learning</h4>
-                                    <p>Agent-based learning & optimization</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-cuda-plain colored"></i>
-                            </div>
-                            <span class="skill-name">CUDA</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>CUDA</h4>
-                                    <p>GPU acceleration for deep learning</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Model Serving & Optimization Skills -->
-                <div class="skills-category" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Model Serving & Optimization</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <span class="skill-name">Triton</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Triton Inference Server</h4>
-                                    <p>High-performance model serving</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <span class="skill-name">vLLM</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>vLLM</h4>
-                                    <p>High-throughput LLM inference</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-exchange-alt"></i>
-                            </div>
-                            <span class="skill-name">ONNX</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>ONNX</h4>
-                                    <p>Model interoperability & exchange</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-tachometer-alt"></i>
-                            </div>
-                            <span class="skill-name">TensorRT</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>TensorRT</h4>
-                                    <p>High-performance deep learning inference</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-scroll"></i>
-                            </div>
-                            <span class="skill-name">TorchScript</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>TorchScript</h4>
-                                    <p>PyTorch model optimization</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Cloud & MLOps Skills -->
-                <div class="skills-category" data-aos="fade-up" data-aos-delay="400">
-                    <h3>Cloud & MLOps</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-amazonwebservices-plain colored"></i>
-                            </div>
-                            <span class="skill-name">AWS</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>AWS</h4>
-                                    <p>Cloud infrastructure & services</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-azure-plain colored"></i>
-                            </div>
-                            <span class="skill-name">Azure</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Azure</h4>
-                                    <p>Microsoft cloud platform</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-docker-plain colored"></i>
-                            </div>
-                            <span class="skill-name">Docker</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Docker</h4>
-                                    <p>Containerization & deployment</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-kubernetes-plain colored"></i>
-                            </div>
-                            <span class="skill-name">Kubernetes</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Kubernetes</h4>
-                                    <p>Container orchestration</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-terraform-plain colored"></i>
-                            </div>
-                            <span class="skill-name">Terraform</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Terraform</h4>
-                                    <p>Infrastructure as code</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-github-plain colored"></i>
-                            </div>
-                            <span class="skill-name">CI/CD</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>CI/CD</h4>
-                                    <p>Continuous integration & deployment</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <span class="skill-name">MLflow</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>MLflow</h4>
-                                    <p>ML lifecycle management</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Data Engineering & Big Data Skills -->
-                <div class="skills-category" data-aos="fade-up" data-aos-delay="500">
-                    <h3>Data Engineering & Big Data</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-apachekafka-original colored"></i>
-                            </div>
-                            <span class="skill-name">Kafka</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Apache Kafka</h4>
-                                    <p>Distributed event streaming</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-apache-plain colored"></i>
-                            </div>
-                            <span class="skill-name">Hadoop</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Hadoop</h4>
-                                    <p>Distributed data processing</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-mongodb-plain colored"></i>
-                            </div>
-                            <span class="skill-name">MongoDB</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>MongoDB</h4>
-                                    <p>NoSQL database</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-redis-plain colored"></i>
-                            </div>
-                            <span class="skill-name">Redis</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Redis</h4>
-                                    <p>In-memory data store</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-mysql-plain colored"></i>
-                            </div>
-                            <span class="skill-name">MySQL</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>MySQL</h4>
-                                    <p>Relational database</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="devicon-postgresql-plain colored"></i>
-                            </div>
-                            <span class="skill-name">PostgreSQL</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>PostgreSQL</h4>
-                                    <p>Advanced relational database</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Software Development Skills -->
-                <div class="skills-category" data-aos="fade-up" data-aos-delay="600">
-                    <h3>Software Development</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-cubes"></i>
-                            </div>
-                            <span class="skill-name">OOP</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Object-Oriented Programming</h4>
-                                    <p>Software design & architecture</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-sitemap"></i>
-                            </div>
-                            <span class="skill-name">Design Patterns</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Design Patterns</h4>
-                                    <p>Reusable software solutions</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <span class="skill-name">REST & GraphQL</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>REST & GraphQL APIs</h4>
-                                    <p>API design & implementation</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
-                            <span class="skill-name">Multi-threading</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Multi-threading</h4>
-                                    <p>Concurrent programming</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-tasks"></i>
-                            </div>
-                            <span class="skill-name">Agile</span>
-                            <div class="skill-tooltip">
-                                <div class="tooltip-content">
-                                    <h4>Agile Methodologies</h4>
-                                    <p>Scrum, Kanban, & project management</p>
-                                    <div class="proficiency">
-                                        <div class="proficiency-bar" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Work Experience</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="company-logo">
-                                <img src="images/isro-logo.png" alt="ISRO Logo" class="company-logo-img">
-                            </div>
-                            <div class="company-info">
-                                <h3>SAC-Indian Space Research Organization</h3>
-                                <h4>ML Intern – Hydrological Modeling & Forecasting</h4>
-                                <p class="timeline-period">Dec 2022 - Apr 2023</p>
-                            </div>
-                        </div>
-                        <div class="timeline-body">
-                            <ul>
-                                <li>Built a forecasting pipeline using HMMs, Markov Chains, and LDA to model rainfall patterns; improved prediction accuracy by ~20%.</li>
-                                <li>Processed and cleaned hundreds of GBs of satellite data using Pandas and AWS S3, reducing prep time by ~30%.</li>
-                                <li>Integrated results into flood risk tools, helping improve early warning reliability across pilot regions.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="company-logo">
-                                <img src="images/rt-logo.png" alt="ISRO Logo" class="company-logo-img">
-                            </div>
-                            <div class="company-info">
-                                <h3>Raven Technolabs</h3>
-                                <h4>ML Engineering Intern – Cloud Infrastructure & Model Deployment </h4>
-                                <p class="timeline-period">May 2022 - July 2022</p>
-                            </div>
-                        </div>
-                        <div class="timeline-body">
-                            <ul>
-                                <li>Developed backend microservices in Spring Boot and Node.js for real-time ML model deployment.</li>
-                                <li>Created REST/GraphQL APIs to support model inference; improved latency by ~25%.</li>
-                                <li>Automated CI/CD pipelines using GitHub Actions and AWS CodeDeploy, reducing manual deployments by 50%.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="company-logo">
-                                <div class="logo-placeholder">NT</div>
-                            </div>
-                            <div class="company-info">
-                                <h3>Nanotech Technologies</h3>
-                                <h4>Cofounder & Lead Software Engineer – Scalable Systems & Data Engineering</h4>
-                                <p class="timeline-period">Mar 2019 - Nov 2021</p>
-                            </div>
-                        </div>
-                        <div class="timeline-body">
-                            <ul>
-                                <li>Led a 14-member team to build scalable edge-to-cloud data pipelines for industrial automation.</li>
-                                <li>Optimized backend systems via low-level code refactoring and DB tuning, improving performance by ~20%.</li>
-                                <li>Built infrastructure for real-time monitoring and enabled future ML use cases like predictive maintenance.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="company-logo">
-                                <img src="images/Fresno-logo.png" alt="ISRO Logo" class="company-logo-img">
-                            </div>
-                            <div class="company-info">
-                                <h3>California State University</h3>
-                                <h4>Brain-Computer Interface Research Assistant </h4>
-                                <p class="timeline-period">May 2025 - August 2025</p>
-                            </div>
-                        </div>
-                        <div class="timeline-body">
-                            <ul>
-                                <li>Designed a scalable EEG preprocessing pipeline (MATLAB, Python) processing 64k+ multi-channel trials, cutting preprocessing time by 40%. </li>
-                                <li>Built optimized CNN architectures with temporal–spatial convolutions, SE blocks, and GELU activations, achieving 98.7% balanced accuracy and AUC 0.9997. </li>
-                                <li>Implemented a robust evaluation framework (test-time voting, stratified CV, augmentation), improving model robustness by 25% and leading to international conference acceptance. </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="company-logo">
-                                <img src="images/Fresno-logo.png" alt="ISRO Logo" class="company-logo-img">
-                            </div>
-                            <div class="company-info">
-                                <h3>California State University</h3>
-                                <h4>SI Leader - Instructional Student Assistant </h4>
-                                <p class="timeline-period">August 2025 - Present</p>
-                            </div>
-                        </div>
-                        <div class="timeline-body">
-                            <ul>
-                                <li>Facilitated peer-led learning sessions for 20+ undergraduate students, reinforcing lecture topics through interactive activities such as concept mapping, group problem-solving, and coding challenges.</li>
-                                <li>Designed and delivered structured lesson plans (icebreakers, warm-ups, main activities, and closing) that enhanced comprehension of core computer science concepts including control structures, processes, and threads. </li>
-                                <li>Cultivated a collaborative learning environment by guiding discussions with probing questions, encouraging peer-to-peer explanations, and supporting diverse student learning styles with adaptive strategies. </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-<section id="projects" class="section">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <h2>Projects</h2>
-      <div class="section-divider"></div>
-      <p class="section-subtitle">Explore my latest work in AI/ML, Reinforcement Learning, and Fullstack Development</p>
+<section id="hero">
+  <canvas id="constellation"></canvas>
+  <svg class="hero-orbit" viewBox="0 0 420 420" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="rgba(194,103,45,.3)" stroke-width="1.2"><circle cx="210" cy="210" r="64"/><circle cx="210" cy="210" r="118"/><circle cx="210" cy="210" r="172"/></g>
+  <g fill="none" stroke="rgba(230,53,37,.25)" stroke-width="1" stroke-dasharray="5 9"><circle cx="210" cy="210" r="92"><animateTransform attributeName="transform" type="rotate" from="0 210 210" to="360 210 210" dur="40s" repeatCount="indefinite"/></circle></g>
+  <g><circle cx="210" cy="38" r="6" fill="#FF7A1A"><animateTransform attributeName="transform" type="rotate" from="0 210 210" to="360 210 210" dur="13s" repeatCount="indefinite"/></circle></g>
+  <g><circle cx="210" cy="92" r="4.5" fill="#E63525"><animateTransform attributeName="transform" type="rotate" from="360 210 210" to="0 210 210" dur="19s" repeatCount="indefinite"/></circle></g>
+  <g><circle cx="210" cy="382" r="4" fill="#FFC11E"><animateTransform attributeName="transform" type="rotate" from="0 210 210" to="360 210 210" dur="9s" repeatCount="indefinite"/></circle></g>
+</svg>
+  <div class="wrap">
+    <div class="tagpill"><span class="live"></span><span>Incoming SDE 1 @ Intuit · Mountain View · Jun 2026</span></div>
+    <h1>Aryan <span class="gradient-text">Patodiya</span></h1>
+    <div class="hero-role mono"><span id="role"></span><span class="cursor">_</span></div>
+    <p class="lede">I build and study machine learning systems: large language models, retrieval-augmented generation, and reinforcement learning, with an eye on what actually ships.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary magnetic"><i class="fas fa-arrow-down"></i> View work</a>
+      <a href="assets/ResumeAryanPatodiya.pdf" download class="btn btn-ghost magnetic"><i class="fas fa-file-arrow-down"></i> Resume</a>
     </div>
-
-    <div class="projects-grid">
-
-      <!-- MarketPulse -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="project-image">
-          <img src="images/marketpulse.jpg" alt="MarketPulse: Real-Time Stock Trend Predictor" class="project-img">
-          <div class="project-overlay">
-            <div class="project-links">
-              <a href="https://github.com/Aryanp018/Stock_Predictor" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-content">
-          <h3>MarketPulse: Real-Time Stock Trend Predictor</h3>
-          <div class="project-tags">
-            <span class="tag">LSTM</span>
-            <span class="tag">GRU</span>
-            <span class="tag">Streamlit</span>
-            <span class="tag">AWS</span>
-          </div>
-          <p>Designed LSTM/GRU models achieving ~80% directional accuracy on OHLCV data. Deployed using TensorFlow Serving on AWS with vector embeddings, reducing query latency by 20%.</p>
-        </div>
-      </div>
-
-      <!-- DocuQuery -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="150">
-        <div class="project-image">
-          <img src="images/project-docuquery.png" alt="DocuQuery: Fullstack Semantic Search Engine" class="project-img">
-          <div class="project-overlay">
-            <div class="project-links">
-              <a href="#" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-content">
-          <h3>DocuQuery: Fullstack Semantic Search Engine</h3>
-          <div class="project-tags">
-            <span class="tag">LLaMA-2</span>
-            <span class="tag">LangChain</span>
-            <span class="tag">FAISS</span>
-            <span class="tag">Streamlit</span>
-          </div>
-          <p>Built a context-aware search system using LLaMA-2, LangChain, and FAISS. Integrated OpenAI embeddings to boost relevance by ~30% and deployed as a Dockerized Streamlit microservice.</p>
-        </div>
-      </div>
-
-      <!-- CollabBoard -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="project-image">
-          <img src="images/project-collabboard.png" alt="CollabBoard" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>CollabBoard – Real-Time Team Collaboration Platform</h3>
-          <div class="project-tags">
-            <span class="tag">React.js</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">WebSockets</span>
-            <span class="tag">MongoDB</span>
-            <span class="tag">AWS</span>
-          </div>
-          <p>Developed a production-ready collaboration app supporting 1,000+ concurrent users with real-time WebSocket updates, AWS CI/CD deployment, and authentication-based role control.</p>
-        </div>
-      </div>
-
-      <!-- Personal Finance Management -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="250">
-        <div class="project-image">
-          <img src="images/project-finance.png" alt="Personal Finance Management Platform" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>Personal Finance Management Platform</h3>
-          <div class="project-tags">
-            <span class="tag">React.js</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">D3.js</span>
-            <span class="tag">Chart.js</span>
-          </div>
-          <p>Built a full-stack finance tracking system using React.js, Node.js, and PostgreSQL. Integrated Plaid API for secure bank transactions and real-time analytics visualizations.</p>
-        </div>
-      </div>
-
-      <!-- YOLOv5 Object Detection -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="project-image">
-          <img src="images/project-yolo.png" alt="Real-Time Object Detection using YOLOv5" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>Real-Time Object Detection using YOLOv5</h3>
-          <div class="project-tags">
-            <span class="tag">YOLOv5</span>
-            <span class="tag">TensorRT</span>
-            <span class="tag">OpenCV</span>
-            <span class="tag">COCO</span>
-          </div>
-          <p>Implemented YOLOv5 on COCO dataset achieving 85% mAP. Optimized inference by 30% using TensorRT acceleration and integrated OpenCV for 30 FPS real-time tracking.</p>
-        </div>
-      </div>
-
-      <!-- CDPC Management -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="350">
-        <div class="project-image">
-          <img src="images/project-cdpc.png" alt="CDPC Management" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>CDPC Management System</h3>
-          <div class="project-tags">
-            <span class="tag">React.js</span>
-            <span class="tag">AWS Lambda</span>
-            <span class="tag">API Gateway</span>
-          </div>
-          <p>Developed a React-based career management system that reduced manual workload by 50% and improved efficiency by 30%. Integrated AWS Lambda & API Gateway for 99.9% uptime.</p>
-        </div>
-      </div>
-
-      <!-- Web 3.0 App -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-        <div class="project-image">
-          <img src="images/project-web3.png" alt="Web 3.0 App" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>Web 3.0 App – Decentralized NFT Marketplace</h3>
-          <div class="project-tags">
-            <span class="tag">React.js</span>
-            <span class="tag">Solidity</span>
-            <span class="tag">AWS</span>
-          </div>
-          <p>Engineered a decentralized NFT marketplace using Solidity and AWS, handling $10,000+ in digital assets. Designed a gas-free smart contract system to eliminate fees entirely.</p>
-        </div>
-      </div>
-
-      <!-- Deep Learning Image Classification -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="450">
-        <div class="project-image">
-          <img src="images/project-cnn.png" alt="Deep Learning for Image Classification" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>Deep Learning for Image Classification</h3>
-          <div class="project-tags">
-            <span class="tag">CNN</span>
-            <span class="tag">ResNet</span>
-            <span class="tag">TensorFlow</span>
-          </div>
-          <p>Developed CNN and ResNet architectures for MNIST and CIFAR-10 datasets, increasing accuracy from 85% to 98%. Enhanced performance with data augmentation and hyperparameter tuning.</p>
-        </div>
-      </div>
-
-      <!-- NdLinear Benchmark -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-        <div class="project-image">
-          <img src="images/project-ndlinear.png" alt="NdLinear Benchmarking for Reinforcement Learning" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>NdLinear Benchmarking for Reinforcement Learning</h3>
-          <div class="project-tags">
-            <span class="tag">NdLinear</span>
-            <span class="tag">REINFORCE</span>
-            <span class="tag">CartPole</span>
-            <span class="tag">LunarLander</span>
-          </div>
-          <p>Benchmarked NdLinear layers against nn.Linear in RL tasks. Achieved faster convergence, higher stability, and smoother reward curves across CartPole-v1 and LunarLander-v2 environments.</p>
-        </div>
-      </div>
-
-      <!-- TimeNet -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="550">
-        <div class="project-image">
-          <img src="images/project-timenet.png" alt="TimeNet" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>TimeNet: Sequence Forecasting with RNNs</h3>
-          <div class="project-tags">
-            <span class="tag">RNN</span>
-            <span class="tag">TensorFlow</span>
-            <span class="tag">Forecasting</span>
-          </div>
-          <p>Developed RNN models for rainfall and energy forecasting, outperforming ARIMA by 15–20%. Optimized data pipeline and reduced training time by 20%.</p>
-        </div>
-      </div>
-
-      <!-- Article Summarizer -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="600">
-        <div class="project-image">
-          <img src="images/project-summarizer.png" alt="Article Summarizer" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>Article Summarizer</h3>
-          <div class="project-tags">
-            <span class="tag">NLP</span>
-            <span class="tag">Summarization</span>
-            <span class="tag">Sentiment Analysis</span>
-          </div>
-          <p>Developed an NLP-based summarizer reducing text length by 80% while maintaining 95% accuracy in sentiment analysis. Used advanced algorithms for text compression and semantic scoring.</p>
-        </div>
-      </div>
-
-      <!-- SkyDefender -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="650">
-        <div class="project-image">
-          <img src="images/project-skydefender.png" alt="SkyDefender 3D Game" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>SkyDefender: 3D Shooter & Duck Hunt Game</h3>
-          <div class="project-tags">
-            <span class="tag">C++</span>
-            <span class="tag">OpenGL</span>
-            <span class="tag">GLUT</span>
-            <span class="tag">SOIL</span>
-            <span class="tag">irrKlang</span>
-          </div>
-          <p>Developed a 3D OpenGL-based duck shooting game with parallax environments, pathfinding drones, and collision detection. Achieved ~60 FPS through optimized audio-visual subsystems.</p>
-        </div>
-      </div>
-
-      <!-- RAG with RL -->
-      <div class="project-card" data-aos="fade-up" data-aos-delay="700">
-        <div class="project-image">
-          <img src="images/project-rag.png" alt="Optimizing RAG with Reinforcement Learning" class="project-img">
-        </div>
-        <div class="project-content">
-          <h3>Optimizing Retrieval-Augmented Generation (RAG) with Reinforcement Learning</h3>
-          <div class="project-tags">
-            <span class="tag">PPO</span>
-            <span class="tag">RAG</span>
-            <span class="tag">SQuAD/NQ</span>
-            <span class="tag">Evaluation</span>
-          </div>
-          <p>Designed a custom PPO-based RL framework improving RAG retrieval relevance by 20–25%. Integrated BLEU and Exact Match metrics for robust evaluation and generalization.</p>
-        </div>
-      </div>
-
+    <div class="hero-socials">
+      <a href="https://www.linkedin.com/in/aryanpatodiya08/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/Aryanp018" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:aryanpatodiya018@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
     </div>
   </div>
+  <div class="scrollcue"><span>scroll</span><span class="bar"></span></div>
 </section>
 
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Education</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="education-timeline">
-                <div class="education-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="education-dot"></div>
-                    <div class="education-content">
-                        <div class="education-logo">
-                            <img src="images/Fresno-logo.png" alt="ISRO Logo" class="company-logo-img">
-                        </div>
-                        <div class="education-info">
-                            <h3>California State University, Fresno</h3>
-                            <h4>Master of Science in Computer Science</h4>
-                            <p class="education-period">Jan 2024 - Present | GPA: 3.9/4.0</p>
-                            <div class="education-details">
-                                <p><strong>Relevant Coursework:</strong> Advanced Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Reinforcement Learning, Distributed Systems</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="education-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="education-dot"></div>
-                    <div class="education-content">
-                        <div class="education-logo">
-                            <img src="images/charusat-logo.png" alt="ISRO Logo" class="company-logo-img">
-                        </div>
-                        <div class="education-info">
-                            <h3>Charusat University</h3>
-                            <h4>Bachelor of Technology in Computer Science and Engineering</h4>
-                            <p class="education-period">July 2019 - Apr 2023 | GPA: 3.82/4.0</p>
-                            <div class="education-details">
-                                <p><strong>Relevant Coursework:</strong> Data Structures and Algorithms, Operating Systems, Database Management Systems, Computer Networks, Artificial Intelligence, Machine Learning</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Contact Me</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Let's discuss how we can work together</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                            <p>aryanpatodiya018@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Phone</h3>
-                            <p>+1 (925)-918-1058</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Location</h3>
-                            <p>Fresno, CA</p>
-                        </div>
-                    </div>
-                    <div class="social-links-large">
-                        <a href="https://www.linkedin.com/in/aryanpatodiya08/" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/Aryanp018" class="social-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-form-container" data-aos="fade-left" data-aos-duration="1000">
-    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqalzlbl" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://zfdghtju.manus.space/?success=true">
-        <input type="hidden" name="_subject" value="New message from portfolio website">
-        
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-        </div>
-        <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-        </div>
-
-        <button type="submit" class="btn primary-btn">
-            <span class="btn-text">Send Message</span>
-        </button>
-    </form>
-    
-    <div id="form-status" class="form-status" style="display: none;"></div>
-</div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#hero">AP</a>
-                </div>
-                <div class="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#education">Education</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/aryanpatodiya08/" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/Aryanp018" class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Aryan Patodiya. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
+<section id="about"><div class="wrap">
+  <div class="eyebrow reveal mono">01 / about</div>
+  <h2 class="s-title reveal">Practitioner and researcher</h2>
+  <div class="about reveal">
+    <div class="about-photo">
+      <div class="frame"><img src="images/IMG_9527.jpg" alt="Aryan Patodiya"></div>
+      <div class="about-badge"><div class="n">1.5+</div><div class="l">Years<br>Experience</div></div>
     </div>
+    <div class="about-text">
+      <p>Graduate computer science student with roughly <strong>1.5 years</strong> of hands-on work across research, internships, and a startup, spanning machine learning, backend development, and cloud infrastructure.</p>
+      <p>I have built end-to-end ML pipelines at ISRO, deployed real-time systems on AWS and Azure, and developed LLM-based applications for document search and forecasting. My current focus is implementing modern LLM architectures from scratch and improving retrieval systems with reinforcement learning. In June 2026 I am joining <strong>Intuit</strong> in Mountain View as a Software Development Engineer 1.</p>
+      <div class="about-cards">
+        <div class="about-card card"><i class="fas fa-graduation-cap"></i><h4>Education</h4><span>MS Computer Science</span></div>
+        <div class="about-card card"><i class="fas fa-briefcase"></i><h4>Experience</h4><span>Intuit · ISRO · Raven</span></div>
+        <div class="about-card card"><i class="fas fa-flask"></i><h4>Research</h4><span>LLMs · RAG · RL</span></div>
+      </div>
+      <a href="assets/ResumeAryanPatodiya.pdf" download class="btn btn-primary magnetic"><i class="fas fa-file-arrow-down"></i> Download resume</a>
+    </div>
+  </div>
+</div></section>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="js/main.js"></script>
+<section id="skills"><div class="wrap">
+  <div class="eyebrow reveal mono">02 / skills</div>
+  <h2 class="s-title reveal">Tools and techniques</h2>
+  <p class="s-intro reveal">A stack built around deep learning research and production ML systems.</p>
+  <div id="skills-mount" class="reveal"></div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <div class="eyebrow reveal mono">03 / experience</div>
+  <h2 class="s-title reveal">Where I have worked</h2>
+  <div id="exp-mount" class="tl reveal"></div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="eyebrow reveal mono">04 / projects</div>
+  <h2 class="s-title reveal">Selected work</h2>
+  <p class="s-intro reveal">AI/ML research, reinforcement learning, and full-stack systems.</p>
+  <div id="proj-mount" class="proj-grid"></div>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <div class="eyebrow reveal mono">05 / education</div>
+  <h2 class="s-title reveal">Academic background</h2>
+  <div class="edu-grid reveal">
+    <div class="edu card">
+      <div class="edu-head"><div class="edu-logo"><span class="fbk">CSUF</span><img src="images/Fresno-logo.png" alt="Fresno State" onerror="this.style.display='none'"></div>
+        <div><h3>California State University, Fresno</h3><div class="deg">MS, Computer Science</div></div></div>
+      <div class="meta">Jan 2024 - Present · GPA 3.9 / 4.0</div>
+      <p class="course"><b>Coursework:</b> Advanced Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Reinforcement Learning, Distributed Systems</p>
+    </div>
+    <div class="edu card">
+      <div class="edu-head"><div class="edu-logo"><span class="fbk">CU</span><img src="images/charusat-logo.png" alt="Charusat University" onerror="this.style.display='none'"></div>
+        <div><h3>Charusat University</h3><div class="deg">BTech, Computer Science & Engineering</div></div></div>
+      <div class="meta">Jul 2019 - Apr 2023 · GPA 3.82 / 4.0</div>
+      <p class="course"><b>Coursework:</b> Data Structures and Algorithms, Operating Systems, Database Management Systems, Computer Networks, Artificial Intelligence, Machine Learning</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="eyebrow reveal mono">06 / contact</div>
+  <h2 class="s-title reveal">Let's talk</h2>
+  <p class="s-intro reveal">Open to ML engineering and research opportunities. Reach out and I will reply.</p>
+  <div class="contact reveal">
+    <div class="contact-info">
+      <div class="ci"><div class="ci-ico"><i class="fas fa-envelope"></i></div><div><div class="l">Email</div><div class="v">aryanpatodiya018@gmail.com</div></div></div>
+      <div class="ci"><div class="ci-ico"><i class="fas fa-phone"></i></div><div><div class="l">Phone</div><div class="v">+1 (925) 918-1058</div></div></div>
+      <div class="ci"><div class="ci-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="l">Location</div><div class="v">Fresno, California</div></div></div>
+      <div class="contact-socials">
+        <a href="https://www.linkedin.com/in/aryanpatodiya08/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/Aryanp018" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:aryanpatodiya018@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <form class="card" action="https://formspree.io/f/mqalzlbl" method="POST">
+      <input type="hidden" name="_subject" value="New message from portfolio website">
+      <div class="fg"><label for="name">Name</label><input id="name" name="name" placeholder="Your name" required></div>
+      <div class="fg"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required></div>
+      <div class="fg"><label for="subject">Subject</label><input id="subject" name="subject" placeholder="What is this about?" required></div>
+      <div class="fg"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea></div>
+      <button type="submit" class="btn btn-primary magnetic"><i class="fas fa-paper-plane"></i> Send message</button>
+    </form>
+  </div>
+</div></section>
+
+<footer><svg class="footer-wave" viewBox="0 0 1200 56" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <path fill="none" stroke="url(#lineGrad)" stroke-width="2" d="M0,28 C150,52 300,4 450,28 S750,52 900,28 1050,4 1200,28">
+    <animate attributeName="d" dur="9s" repeatCount="indefinite"
+      values="M0,28 C150,52 300,4 450,28 S750,52 900,28 1050,4 1200,28;M0,28 C150,4 300,52 450,28 S750,4 900,28 1050,52 1200,28;M0,28 C150,52 300,4 450,28 S750,52 900,28 1050,4 1200,28"/>
+  </path>
+</svg><div class="wrap foot">
+  <a href="#hero" class="brand"><span class="dot"></span>Aryan Patodiya</a>
+  <div class="foot-links"><a href="#about">about</a><a href="#projects">projects</a><a href="./blog/index.html">blog</a><a href="#contact">contact</a></div>
+  <div class="copy">© 2025 Aryan Patodiya</div>
+</div></footer>
+
+<button class="totop" id="totop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+const SKILLS=[
+  {g:"Languages",items:[["Python","devicon-python-plain"],["C++","devicon-cplusplus-plain"],["Java","devicon-java-plain"],["JavaScript","devicon-javascript-plain"],["TypeScript","devicon-typescript-plain"],["SQL","devicon-mysql-plain"]]},
+  {g:"Machine Learning & Deep Learning",items:[["PyTorch","devicon-pytorch-original"],["TensorFlow","devicon-tensorflow-original"],["Transformers","fa-solid fa-layer-group"],["LLMs","fa-solid fa-language"],["RAG","fa-solid fa-magnifying-glass"],["Reinforcement Learning","fa-solid fa-gamepad"],["CNNs","fa-solid fa-network-wired"],["RNNs","fa-solid fa-rotate"],["OpenCV","devicon-opencv-plain"],["CUDA","fa-solid fa-microchip"]]},
+  {g:"Serving & Optimization",items:[["Triton","fa-solid fa-server"],["vLLM","fa-solid fa-bolt"],["ONNX","fa-solid fa-right-left"],["TensorRT","fa-solid fa-gauge-high"],["TorchScript","fa-solid fa-scroll"]]},
+  {g:"Cloud & MLOps",items:[["AWS","devicon-amazonwebservices-plain-wordmark"],["Azure","devicon-azure-plain"],["Docker","devicon-docker-plain"],["Kubernetes","devicon-kubernetes-plain"],["Terraform","devicon-terraform-plain"],["CI/CD","devicon-github-plain"],["MLflow","fa-solid fa-chart-line"]]},
+  {g:"Data & Storage",items:[["Kafka","devicon-apachekafka-original"],["MongoDB","devicon-mongodb-plain"],["Redis","devicon-redis-plain"],["PostgreSQL","devicon-postgresql-plain"],["MySQL","devicon-mysql-plain"]]},
+];
+const EXP=[
+  {logo:"images/intuit-logo.png",fb:"INT",org:"Intuit",role:"Software Development Engineer 1 (Incoming)",period:"Starting Jun 15, 2026 \u00b7 Mountain View, CA",pts:["Joining Intuit as an SDE 1 in Mountain View.","Will be building large-scale fintech systems across Intuit's product platform.","Bringing an ML systems background (LLMs, RAG, RL) into production engineering."]},
+  {logo:"images/isro-logo.png",fb:"ISRO",org:"SAC, Indian Space Research Organisation",role:"ML Intern, Hydrological Modeling & Forecasting",period:"Dec 2022 - Apr 2023",pts:["Built a forecasting pipeline using HMMs, Markov Chains, and LDA to model rainfall patterns; improved prediction accuracy by ~20%.","Processed and cleaned hundreds of GBs of satellite data with Pandas and AWS S3, cutting prep time by ~30%.","Integrated results into flood-risk tools, improving early-warning reliability across pilot regions."]},
+  {logo:"images/Fresno-logo.png",fb:"CSUF",org:"California State University, Fresno",role:"Brain-Computer Interface Research Assistant",period:"May 2025 - Aug 2025",pts:["Designed a scalable EEG preprocessing pipeline (MATLAB, Python) over 64k+ multi-channel trials, cutting preprocessing time by 40%.","Built CNN architectures with temporal-spatial convolutions, SE blocks, and GELU activations, reaching 98.7% balanced accuracy and AUC 0.9997.","Implemented a robust evaluation framework (test-time voting, stratified CV, augmentation), improving robustness by 25% and leading to international conference acceptance."]},
+  {logo:"images/Fresno-logo.png",fb:"CSUF",org:"California State University, Fresno",role:"SI Leader, Instructional Student Assistant",period:"Aug 2025 - Present",pts:["Facilitated peer-led learning sessions for 20+ undergraduates using concept mapping, group problem-solving, and coding challenges.","Designed structured lesson plans that improved comprehension of control structures, processes, and threads.","Cultivated a collaborative environment through probing questions and adaptive strategies for diverse learners."]},
+  {logo:"images/rt-logo.png",fb:"RT",org:"Raven Technolabs",role:"ML Engineering Intern, Cloud Infrastructure & Deployment",period:"May 2022 - Jul 2022",pts:["Developed backend microservices in Spring Boot and Node.js for real-time ML model deployment.","Created REST and GraphQL APIs for model inference; improved latency by ~25%.","Automated CI/CD with GitHub Actions and AWS CodeDeploy, reducing manual deployments by 50%."]},
+  {logo:null,ph:"NT",org:"Nanotech Technologies",role:"Cofounder & Lead Software Engineer",period:"Mar 2019 - Nov 2021",pts:["Led a 14-member team building scalable edge-to-cloud data pipelines for industrial automation.","Optimized backend systems via low-level refactoring and DB tuning, improving performance by ~20%.","Built infrastructure for real-time monitoring and enabled future ML use cases like predictive maintenance."]},
+];
+const PROJECTS=[
+  {t:"Optimizing RAG with Reinforcement Learning",cat:"rag",tags:["PPO","RAG","SQuAD/NQ","Eval"],d:"A custom PPO-based RL framework that improved RAG retrieval relevance by 20-25%, with BLEU and Exact Match for robust evaluation.",link:null},
+  {t:"DocuQuery: Semantic Search Engine",cat:"rag",tags:["LLaMA-2","LangChain","FAISS","Streamlit"],d:"Context-aware search using LLaMA-2, LangChain, and FAISS. OpenAI embeddings boosted relevance ~30%, deployed as a Dockerized Streamlit service.",link:null},
+  {t:"NdLinear Benchmarking for RL",cat:"rl",tags:["NdLinear","REINFORCE","CartPole","LunarLander"],d:"Benchmarked NdLinear against nn.Linear in RL. Faster convergence, higher stability, and smoother reward curves on CartPole-v1 and LunarLander-v2.",link:null},
+  {t:"MarketPulse: Stock Trend Predictor",cat:"forecast",tags:["LSTM","GRU","Streamlit","AWS"],d:"LSTM/GRU models reaching ~80% directional accuracy on OHLCV data. Served with TensorFlow Serving on AWS, cutting query latency by 20%.",link:"https://github.com/Aryanp018/Stock_Predictor"},
+  {t:"TimeNet: Sequence Forecasting",cat:"forecast",tags:["RNN","TensorFlow","Forecasting"],d:"RNN models for rainfall and energy forecasting, outperforming ARIMA by 15-20% with a 20% faster training pipeline.",link:null},
+  {t:"Real-Time Object Detection (YOLOv5)",cat:"vision",tags:["YOLOv5","TensorRT","OpenCV","COCO"],d:"YOLOv5 on COCO at 85% mAP. TensorRT cut inference time 30%, OpenCV enabled 30 FPS real-time tracking.",link:null},
+  {t:"Deep Learning Image Classification",cat:"vision",tags:["CNN","ResNet","TensorFlow"],d:"CNN and ResNet on MNIST and CIFAR-10, raising accuracy from 85% to 98% via augmentation and hyperparameter tuning.",link:null},
+  {t:"Article Summarizer",cat:"nlp",tags:["NLP","Summarization","Sentiment"],d:"NLP summarizer reducing text length by 80% while keeping 95% accuracy on sentiment, using semantic scoring for compression.",link:null},
+  {t:"CollabBoard: Team Collaboration",cat:"web",tags:["React","Node","WebSockets","MongoDB"],d:"Production collaboration app for 1,000+ concurrent users with real-time WebSocket sync, AWS CI/CD, and role-based auth.",link:null},
+  {t:"Personal Finance Platform",cat:"web",tags:["React","Node","PostgreSQL","D3"],d:"Full-stack finance tracker with React, Node, and PostgreSQL. Plaid API for secure transactions and real-time analytics.",link:null},
+  {t:"CDPC Management System",cat:"web",tags:["React","AWS Lambda","API Gateway"],d:"React career-management system that cut manual workload 50% and improved efficiency 30%, with Lambda and API Gateway for 99.9% uptime.",link:null},
+  {t:"Decentralized NFT Marketplace",cat:"web3",tags:["React","Solidity","AWS"],d:"Web3 NFT marketplace handling $10,000+ in assets, with a gas-free smart-contract design that eliminates fees.",link:null},
+  {t:"SkyDefender: 3D Shooter",cat:"game",tags:["C++","OpenGL","GLUT","irrKlang"],d:"3D OpenGL duck-shooting game with parallax scenes, pathfinding drones, and collision detection at ~60 FPS.",link:null},
+];
+
+/* warm ember palette for graphics */
+const PAL=[["#FF7A1A","#E63525"],["#FFC11E","#FF7A1A"],["#E63525","#C2672D"],["#C2672D","#FFC11E"],["#FF9A1A","#E63525"]];
+const FRAME="#FFF3E2", HOLLOW="#FFF8EE", DARK="#2A1710";
+function viz(cat,i){
+  const a=PAL[i%PAL.length][0],b=PAL[i%PAL.length][1],id="g"+i;
+  const defs='<defs><linearGradient id="'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+a+'"/><stop offset="1" stop-color="'+b+'"/></linearGradient><radialGradient id="bg'+i+'" cx="50%" cy="38%" r="85%"><stop offset="0" stop-color="'+a+'" stop-opacity=".3"/><stop offset="1" stop-color="'+FRAME+'" stop-opacity="0"/></radialGradient><filter id="gl'+i+'"><feGaussianBlur stdDeviation="2.4"/></filter></defs>';
+  const frame='<rect width="320" height="180" fill="'+FRAME+'"/><rect width="320" height="180" fill="url(#bg'+i+')"/>';
+  const A='stroke="url(#'+id+')"',F='fill="url(#'+id+')"';
+  let m="";
+  if(cat==="rag"){
+    m='<g filter="url(#gl'+i+')" opacity=".45">'+[[150,46],[150,90],[150,134],[230,68],[230,112]].map(function(p){return '<line x1="73" y1="90" x2="'+p[0]+'" y2="'+p[1]+'" '+A+' stroke-width="1.6"/>';}).join("")+'</g><circle cx="60" cy="90" r="14" '+F+'/>'+[[150,46],[150,90],[150,134],[230,68],[230,112]].map(function(p){return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="8" fill="'+HOLLOW+'" stroke="url(#'+id+')" stroke-width="1.8"/>';}).join("")+'<text x="60" y="94" text-anchor="middle" font-family="monospace" font-size="9" fill="#fff" font-weight="700">q</text>';
+  } else if(cat==="rl"){
+    let pts="";for(let x=0;x<=280;x+=8){const y=150-Math.min(112,(x*x)/680)-Math.sin(x/14)*6*(1-x/320);pts+=(x+20)+","+y.toFixed(1)+" ";}
+    m='<polyline points="'+pts+'" fill="none" '+A+' stroke-width="3" filter="url(#gl'+i+')"/><polyline points="'+pts+'" fill="none" '+A+' stroke-width="2.2"/><circle cx="300" cy="38" r="6" '+F+'/><text x="34" y="40" font-family="monospace" font-size="10" fill="'+a+'">reward</text>';
+  } else if(cat==="forecast"){
+    let p="M20,120";for(let x=20;x<=300;x+=10){const y=100+Math.sin(x/22)*28+Math.cos(x/9)*8;p+=" L"+x+","+y.toFixed(1);}
+    m='<line x1="20" y1="150" x2="300" y2="150" stroke="rgba(150,86,40,.25)" stroke-width="1"/><path d="'+p+'" fill="none" '+A+' stroke-width="3" filter="url(#gl'+i+')"/><line x1="160" y1="24" x2="160" y2="150" stroke="'+b+'" stroke-width="1" stroke-dasharray="3 4" opacity=".6"/>'+[40,90,140,200,250].map(function(x){return '<circle cx="'+x+'" cy="'+(100+Math.sin(x/22)*28+Math.cos(x/9)*8).toFixed(1)+'" r="3.6" '+F+'/>';}).join("");
+  } else if(cat==="vision"){
+    let g="";for(let r=0;r<4;r++)for(let c=0;c<6;c++){const o=((Math.sin(r*c+r)+1)/2*.55+.16).toFixed(2);g+='<rect x="'+(28+c*44)+'" y="'+(28+r*34)+'" width="36" height="26" rx="5" fill="url(#'+id+')" opacity="'+o+'"/>';}
+    m=g+'<rect x="100" y="58" width="120" height="76" rx="7" fill="none" stroke="'+DARK+'" stroke-width="2"/><rect x="100" y="48" width="56" height="14" rx="4" '+F+'/><text x="106" y="58" font-family="monospace" font-size="9" fill="#fff" font-weight="700">detect</text>';
+  } else if(cat==="nlp"){
+    const ws=["the","model","reads","each","token"];let t="";ws.forEach(function(w,k){const x=24+k*58;t+='<rect x="'+x+'" y="74" width="48" height="30" rx="7" fill="url(#'+id+')" opacity="'+(.45+k*.12).toFixed(2)+'"/><text x="'+(x+24)+'" y="93" text-anchor="middle" font-family="monospace" font-size="9" fill="#fff" font-weight="700">'+w+'</text>';});m=t;
+  } else if(cat==="web"){
+    m=[0,1,2].map(function(k){return '<rect x="'+(40+k*16)+'" y="'+(40+k*22)+'" width="200" height="64" rx="11" fill="'+HOLLOW+'" stroke="url(#'+id+')" stroke-width="1.8" opacity="'+(1-k*.18)+'"/>';}).join("")+'<circle cx="64" cy="72" r="5" '+F+'/><circle cx="80" cy="72" r="5" fill="'+b+'"/><rect x="100" y="68" width="110" height="8" rx="4" fill="url(#'+id+')" opacity=".6"/>';
+  } else if(cat==="web3"){
+    m=[0,1,2,3].map(function(k){return '<rect x="'+(30+k*70)+'" y="70" width="48" height="48" rx="9" transform="rotate(45 '+(54+k*70)+' 94)" fill="'+HOLLOW+'" stroke="url(#'+id+')" stroke-width="2"/>';}).join("")+[0,1,2].map(function(k){return '<line x1="'+(78+k*70)+'" y1="94" x2="'+(100+k*70)+'" y2="94" '+A+' stroke-width="2.4"/>';}).join("");
+  } else {
+    m='<circle cx="160" cy="90" r="60" fill="none" stroke="url(#'+id+')" stroke-width="1.6" opacity=".5"/><circle cx="160" cy="90" r="38" fill="none" stroke="url(#'+id+')" stroke-width="1.6" opacity=".8"/><circle cx="160" cy="90" r="11" '+F+'/><line x1="160" y1="14" x2="160" y2="40" '+A+' stroke-width="2.4"/><line x1="160" y1="140" x2="160" y2="166" '+A+' stroke-width="2.4"/><line x1="84" y1="90" x2="110" y2="90" '+A+' stroke-width="2.4"/><line x1="210" y1="90" x2="236" y2="90" '+A+' stroke-width="2.4"/>';
+  }
+  return '<svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">'+defs+frame+m+'</svg>';
+}
+const CATLABEL={rag:"RAG / LLM",rl:"Reinforcement Learning",forecast:"Forecasting",vision:"Computer Vision",nlp:"NLP",web:"Full-Stack",web3:"Web3",game:"Graphics"};
+
+document.getElementById("skills-mount").innerHTML=SKILLS.map(function(s){return '<div class="skill-group"><h3>'+s.g+'</h3><div class="chips">'+s.items.map(function(it){const ic=it[1];const cls=ic.indexOf("devicon")===0?ic+" colored":ic;return '<span class="chip"><i class="'+cls+' ico"></i>'+it[0]+'</span>';}).join("")+'</div></div>';}).join("");
+document.getElementById("exp-mount").innerHTML=EXP.map(function(e){var fb=e.fb||e.ph||"";return '<div class="tl-item"><div class="tl-card card"><div class="tl-head">'+(e.logo?'<div class="tl-logo"><span class="fbk">'+fb+'</span><img src="'+e.logo+'" alt="" onerror="this.style.display=&quot;none&quot;"></div>':'<div class="tl-logo ph">'+fb+'</div>')+'<div><h3>'+e.org+'</h3><div class="sub">'+e.role+'</div><div class="tl-period">'+e.period+'</div></div></div><ul>'+e.pts.map(function(p){return '<li>'+p+'</li>';}).join("")+'</ul></div></div>';}).join("");
+document.getElementById("proj-mount").innerHTML=PROJECTS.map(function(p,i){return '<article class="proj card reveal" style="transition-delay:'+((i%3)*70)+'ms"><div class="proj-viz">'+viz(p.cat,i)+'<span class="proj-cat">'+CATLABEL[p.cat]+'</span></div><div class="proj-body"><h3>'+p.t+'</h3><div class="proj-tags">'+p.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join("")+'</div><p>'+p.d+'</p>'+(p.link?'<a class="proj-link" href="'+p.link+'" target="_blank" rel="noopener">View on GitHub <i class="fas fa-arrow-up-right-from-square"></i></a>':'')+'</div></article>';}).join("");
+
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+const roles=["Incoming SDE 1 @ Intuit","Backend Engineer","Distributed Systems Engineer","LLM Engineer","ML Researcher","RAG Systems"];
+let ri=0,ci=0,del=false;const roleEl=document.getElementById("role");
+(function type(){const w=roles[ri];roleEl.textContent=del?w.slice(0,ci--):w.slice(0,ci++);
+  if(!del&&ci===w.length+1){del=true;setTimeout(type,1400);return;}
+  if(del&&ci===0){del=false;ri=(ri+1)%roles.length;}setTimeout(type,del?45:85);})();
+
+const io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(function(n){io.observe(n);});
+
+const header=document.getElementById("header"),prog=document.getElementById("progress"),totop=document.getElementById("totop");
+const navAnchors=[...document.querySelectorAll('.nav-links a[href^="#"]')];
+const spy=navAnchors.map(function(a){return {a:a,el:document.querySelector(a.getAttribute("href"))};}).filter(function(x){return x.el;});
+function onScroll(){
+  const y=scrollY;header.classList.toggle("scrolled",y>40);totop.classList.toggle("show",y>600);
+  const max=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(y/max*100)+"%";
+  let cur=null;spy.forEach(function(s){if(s.el.getBoundingClientRect().top<innerHeight*0.4)cur=s.a;});
+  navAnchors.forEach(function(a){a.classList.toggle("active",a===cur);});
+  drawConnector(y,max);
+}
+totop.onclick=function(){scrollTo({top:0,behavior:"smooth"});};
+
+const nav=document.getElementById("navlinks");
+document.getElementById("burger").onclick=function(){nav.classList.toggle("open");};
+nav.querySelectorAll("a").forEach(function(a){a.onclick=function(){nav.classList.remove("open");};});
+
+if(!reduce){
+  document.querySelectorAll(".magnetic").forEach(function(b){
+    b.addEventListener("pointermove",function(e){const r=b.getBoundingClientRect();b.style.transform="translate("+((e.clientX-r.left-r.width/2)*.2)+"px,"+((e.clientY-r.top-r.height/2)*.32)+"px)";});
+    b.addEventListener("pointerleave",function(){b.style.transform="";});
+  });
+  document.querySelectorAll(".card").forEach(function(c){
+    c.addEventListener("pointermove",function(e){
+      const r=c.getBoundingClientRect();const px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+      c.style.setProperty("--mx",(px*100)+"%");c.style.setProperty("--my",(py*100)+"%");
+      c.style.transform="perspective(900px) rotateX("+((py-.5)*-6).toFixed(2)+"deg) rotateY("+((px-.5)*7).toFixed(2)+"deg) translateZ(0)";
+    });
+    c.addEventListener("pointerleave",function(){c.style.transform="";});
+  });
+}
+
+/* ============ SCROLL CONNECTOR ============ */
+const svg=document.getElementById("connector"),trackP=document.getElementById("conn-track"),pathP=document.getElementById("conn-path"),
+  hotP=document.getElementById("conn-hot"),nodesG=document.getElementById("conn-nodes"),sparksG=document.getElementById("conn-sparks"),comet=document.getElementById("conn-comet");
+let pathLen=0,nodeStops=[],lastY=0;
+function rnd(i){const x=Math.sin(i*99.137)*7654.321;return x-Math.floor(x);}
+function smoothPath(pts){
+  if(pts.length<2)return"";
+  let d="M"+pts[0][0]+","+pts[0][1];
+  for(let i=0;i<pts.length-1;i++){
+    const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+    const c1x=p1[0]+(p2[0]-p0[0])/6,c1y=p1[1]+(p2[1]-p0[1])/6;
+    const c2x=p2[0]-(p3[0]-p1[0])/6,c2y=p2[1]-(p3[1]-p1[1])/6;
+    d+=" C"+c1x.toFixed(1)+","+c1y.toFixed(1)+" "+c2x.toFixed(1)+","+c2y.toFixed(1)+" "+p2[0].toFixed(1)+","+p2[1].toFixed(1);
+  }
+  return d;
+}
+function buildConnector(){
+  if(innerWidth<=700){return;}
+  const docH=document.documentElement.scrollHeight,W=innerWidth;
+  svg.setAttribute("viewBox","0 0 "+W+" "+docH);svg.style.height=docH+"px";
+  const secs=[...document.querySelectorAll("section")];
+  const pts=[[W*0.5,innerHeight*0.62]];const anchors=[];
+  let prevY=innerHeight*0.62;
+  secs.forEach(function(s,i){
+    const r=s.getBoundingClientRect();const y=r.top+scrollY+Math.min(r.height*0.5,150);
+    const side=i%2===0?-1:1;
+    const x=W*0.5+side*(W*0.32+(rnd(i)*2-1)*W*0.09);
+    // wandering midpoint => organic, hand-drawn S-curves
+    const mx=W*0.5+(rnd(i*7+3)*2-1)*W*0.42;
+    pts.push([mx,(prevY+y)/2]);
+    pts.push([x,y]);anchors.push([x,y]);prevY=y;
+  });
+  pts.push([W*0.5+(rnd(91)*2-1)*W*0.28,(prevY+docH-70)/2]);
+  pts.push([W*0.5,docH-70]);
+  const d=smoothPath(pts);
+  trackP.setAttribute("d",d);pathP.setAttribute("d",d);hotP.setAttribute("d",d);
+  pathLen=pathP.getTotalLength();
+  pathP.style.strokeDasharray=pathLen;pathP.style.strokeDashoffset=pathLen;
+  nodesG.innerHTML="";nodeStops=[];
+  const samples=420,lut=[];for(let i=0;i<=samples;i++){lut.push(pathP.getPointAtLength(pathLen*i/samples));}
+  anchors.forEach(function(an){
+    let best=0,bd=1e9;for(let i=0;i<lut.length;i++){const dx=lut[i].x-an[0],dy=lut[i].y-an[1],dd=dx*dx+dy*dy;if(dd<bd){bd=dd;best=i;}}
+    nodeStops.push(best/samples);
+    const c=document.createElementNS("http://www.w3.org/2000/svg","circle");
+    c.setAttribute("cx",an[0]);c.setAttribute("cy",an[1]);c.setAttribute("r",7);
+    c.setAttribute("fill","#FFF8EE");c.setAttribute("stroke","url(#lineGrad)");c.setAttribute("stroke-width","2.5");
+    c.style.transition="opacity .3s";c.style.opacity=".3";nodesG.appendChild(c);
+  });
+  drawConnector(scrollY,document.documentElement.scrollHeight-innerHeight);
+}
+function drawConnector(y,max){
+  if(innerWidth<=700||!pathLen)return;
+  const vel=Math.min(50,Math.abs(y-lastY));lastY=y;
+  const docH=document.documentElement.scrollHeight;
+  const prog=Math.max(0,Math.min(1,(y+innerHeight*0.55)/(docH-innerHeight*0.45)));
+  pathP.style.strokeDashoffset=pathLen*(1-prog);
+  // molten glowing tip riding the head
+  const HOT=Math.min(pathLen*0.1,240);
+  hotP.style.strokeDasharray=HOT+" "+(pathLen+HOT);
+  hotP.style.strokeDashoffset=HOT-pathLen*prog;
+  const active=prog>0.004&&prog<0.997;
+  const head=pathP.getPointAtLength(pathLen*prog);
+  comet.setAttribute("cx",head.x);comet.setAttribute("cy",head.y);
+  comet.setAttribute("r",(5.5+vel*0.22).toFixed(1));
+  comet.setAttribute("opacity",active?"1":"0");
+  // sparks fly off the tip, more when scrolling fast
+  if(active){
+    const n=Math.min(9,2+Math.round(vel/4));let sp="";
+    for(let k=0;k<n;k++){const a=Math.random()*6.283,r=6+Math.random()*(9+vel*1.1);
+      sp+='<line x1="'+head.x.toFixed(1)+'" y1="'+head.y.toFixed(1)+'" x2="'+(head.x+Math.cos(a)*r).toFixed(1)+'" y2="'+(head.y+Math.sin(a)*r).toFixed(1)+'" stroke="url(#lineGrad)" stroke-width="1.7" stroke-linecap="round" opacity="'+(0.4+Math.random()*0.5).toFixed(2)+'"/>';}
+    sparksG.innerHTML=sp;
+  } else sparksG.innerHTML="";
+  const nodes=nodesG.children;
+  for(let i=0;i<nodeStops.length;i++){
+    const on=prog>=nodeStops[i]-0.002;
+    nodes[i].style.opacity=on?"1":".3";nodes[i].setAttribute("r",on?9:7);
+    nodes[i].setAttribute("fill",on?"url(#lineGrad)":"#FFF8EE");
+  }
+}
+
+/* ============ EMBER FLOW FIELD (hero) ============ */
+function fade(t){return t*t*t*(t*(t*6-15)+10);}
+function lerp(a,b,t){return a+(b-a)*t;}
+function hash2(i,j){const x=Math.sin(i*127.1+j*311.7)*43758.5453;return x-Math.floor(x);}
+function vnoise(x,y){const xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi;const u=fade(xf),v=fade(yf);
+  return lerp(lerp(hash2(xi,yi),hash2(xi+1,yi),u),lerp(hash2(xi,yi+1),hash2(xi+1,yi+1),u),v);}
+(function(){
+  const canvas=document.getElementById("constellation");if(!canvas)return;
+  const ctx=canvas.getContext("2d");
+  const pal=["#FFC11E","#FF9A1A","#FF7A1A","#E63525","#C2672D"];
+  let W,H,DPR=Math.min(devicePixelRatio||1,2),P=[],mouse={x:0,y:0,active:false},t=0,raf;
+  function spawn(fromBottom){return {x:Math.random()*W,y:fromBottom?H+8:Math.random()*H,trail:[],life:80+Math.random()*160,col:pal[(Math.random()*pal.length)|0]};}
+  function resize(){
+    W=canvas.clientWidth;H=canvas.clientHeight;canvas.width=W*DPR;canvas.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);
+    const n=Math.min(reduce?70:240,Math.floor(W*H/7200));P=[];for(let i=0;i<n;i++)P.push(spawn(false));
+  }
+  function field(x,y){return vnoise(x*0.0018+t,y*0.0018-t*0.5)*Math.PI*4;}
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    for(let i=0;i<P.length;i++){
+      const p=P[i];const a=field(p.x,p.y);
+      let vx=Math.cos(a),vy=Math.sin(a)-0.28; // buoyancy: embers rise
+      if(mouse.active){const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.hypot(dx,dy)||1;
+        if(d<175){const f=(175-d)/175;const ang=Math.atan2(dy,dx);
+          vx+=Math.cos(ang+1.5708)*f*2.4+dx/d*f*0.7;vy+=Math.sin(ang+1.5708)*f*2.4+dy/d*f*0.7;}}
+      p.x+=vx*1.5;p.y+=vy*1.5;p.life--;
+      p.trail.push([p.x,p.y]);if(p.trail.length>9)p.trail.shift();
+      if(p.life<0||p.x<-12||p.x>W+12||p.y<-12){P[i]=spawn(true);continue;}
+      const tr=p.trail;
+      for(let k=1;k<tr.length;k++){
+        ctx.globalAlpha=(k/tr.length)*0.5;ctx.strokeStyle=p.col;ctx.lineWidth=0.8+(k/tr.length)*1.7;
+        ctx.beginPath();ctx.moveTo(tr[k-1][0],tr[k-1][1]);ctx.lineTo(tr[k][0],tr[k][1]);ctx.stroke();
+      }
+    }
+    ctx.globalAlpha=1;
+    for(let i=0;i<P.length;i++){const p=P[i];
+      ctx.beginPath();ctx.arc(p.x,p.y,3,0,7);ctx.fillStyle=p.col;ctx.globalAlpha=.16;ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,1.4,0,7);ctx.globalAlpha=.95;ctx.fill();
+    }
+    ctx.globalAlpha=1;
+    if(mouse.active){ctx.beginPath();ctx.arc(mouse.x,mouse.y,5,0,7);ctx.fillStyle="#B23A1F";ctx.shadowBlur=22;ctx.shadowColor="#FF7A1A";ctx.fill();ctx.shadowBlur=0;}
+    t+=0.0016;raf=requestAnimationFrame(frame);
+  }
+  addEventListener("resize",resize);
+  const host=canvas.parentElement;
+  host.addEventListener("pointermove",function(e){const r=canvas.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;mouse.active=true;});
+  host.addEventListener("pointerleave",function(){mouse.active=false;});
+  resize();
+  if(reduce){ctx.clearRect(0,0,W,H);for(let i=0;i<P.length;i++){const p=P[i];ctx.fillStyle=p.col;ctx.globalAlpha=.6;ctx.beginPath();ctx.arc(p.x,p.y,1.6,0,7);ctx.fill();}ctx.globalAlpha=1;}
+  else frame();
+})();
+
+addEventListener("scroll",onScroll,{passive:true});
+addEventListener("load",function(){buildConnector();onScroll();});
+let rt;addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(function(){buildConnector();onScroll();},180);});
+setTimeout(function(){buildConnector();onScroll();},600);
+
+/* giant section-number watermarks */
+document.querySelectorAll('section[id]:not(#hero)').forEach(function(sec,i){
+  var w=document.createElement('div');w.className='s-watermark';w.textContent=('0'+(i+1)).slice(-2);
+  sec.insertBefore(w,sec.firstChild);
+});
+/* animated count-up stats strip in About */
+(function(){
+  var tech=SKILLS.reduce(function(a,s){return a+s.items.length;},0);
+  var rows=[['1.5','+','Years experience',1],[String(PROJECTS.length),'','Projects built',0],[String(EXP.length),'','Roles & internships',0],[String(tech),'+','Technologies',0]];
+  var host=document.querySelector('#about .wrap');if(!host)return;
+  var strip=document.createElement('div');strip.className='stats reveal';
+  strip.innerHTML=rows.map(function(d){return '<div class="stat"><div class="stat-n" data-to="'+d[0]+'" data-dec="'+d[3]+'" data-suf="'+d[1]+'">0</div><div class="stat-l">'+d[2]+'</div></div>';}).join('');
+  host.appendChild(strip);io.observe(strip);
+  var fired=false;
+  var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!fired){fired=true;
+    strip.querySelectorAll('.stat-n').forEach(function(el){
+      var to=parseFloat(el.getAttribute('data-to')),dec=+el.getAttribute('data-dec'),suf=el.getAttribute('data-suf'),st=performance.now();
+      (function step(now){var pr=Math.min(1,(now-st)/1300),e2=1-Math.pow(1-pr,3);el.textContent=(to*e2).toFixed(dec)+(pr>=1?suf:'');if(pr<1)requestAnimationFrame(step);})(performance.now());
+    });so.disconnect();}});},{threshold:.4});
+  so.observe(strip);
+})();
+
+/* ============ DECORATIVE SVG GRAPHICS ============ */
+(function(){
+  function wrap(sz,inner){return '<svg class="di" width="'+sz+'" height="'+sz+'" viewBox="0 0 '+sz+' '+sz+'" xmlns="http://www.w3.org/2000/svg">'+inner+'</svg>';}
+  function decorSVG(kind,sz,col){
+    var c=sz/2, r=c-4, sw=1.6;
+    if(kind==='ring') return wrap(sz,'<circle cx="'+c+'" cy="'+c+'" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="'+sw+'"/>');
+    if(kind==='concentric') return wrap(sz,[r,r*0.66,r*0.33].map(function(rr){return '<circle cx="'+c+'" cy="'+c+'" r="'+rr.toFixed(1)+'" fill="none" stroke="'+col+'" stroke-width="1.3"/>';}).join(''));
+    if(kind==='dashring') return wrap(sz,'<circle cx="'+c+'" cy="'+c+'" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="'+sw+'" stroke-dasharray="5 8"/>');
+    if(kind==='tri') return wrap(sz,'<polygon points="'+c+',4 '+(sz-4)+','+(sz-4)+' 4,'+(sz-4)+'" fill="none" stroke="'+col+'" stroke-width="'+sw+'" stroke-linejoin="round"/>');
+    if(kind==='plus') return wrap(sz,'<line x1="'+c+'" y1="4" x2="'+c+'" y2="'+(sz-4)+'" stroke="'+col+'" stroke-width="'+sw+'"/><line x1="4" y1="'+c+'" x2="'+(sz-4)+'" y2="'+c+'" stroke="'+col+'" stroke-width="'+sw+'"/>');
+    if(kind==='hex'){var pts=[];for(var k=0;k<6;k++){var a=(-90+k*60)*Math.PI/180;pts.push((c+r*Math.cos(a)).toFixed(1)+','+(c+r*Math.sin(a)).toFixed(1));}return wrap(sz,'<polygon points="'+pts.join(' ')+'" fill="none" stroke="'+col+'" stroke-width="'+sw+'" stroke-linejoin="round"/>');}
+    if(kind==='sine'){var d='M2,'+c;for(var x=2;x<=sz;x+=4){d+=' L'+x+','+(c+Math.sin(x/sz*Math.PI*4)*(r*0.5)).toFixed(1);}return wrap(sz,'<path d="'+d+'" fill="none" stroke="'+col+'" stroke-width="'+sw+'" stroke-dasharray="60 200"><animate attributeName="stroke-dashoffset" from="0" to="-260" dur="3s" repeatCount="indefinite"/></path>');}
+    if(kind==='cluster'){var ns=[[c,8],[8,sz-10],[sz-8,sz-12],[c,c]];var e='';[[0,3],[1,3],[2,3]].forEach(function(p){e+='<line x1="'+ns[p[0]][0]+'" y1="'+ns[p[0]][1]+'" x2="'+ns[p[1]][0]+'" y2="'+ns[p[1]][1]+'" stroke="'+col+'" stroke-width="1.2"/>';});return wrap(sz,e+ns.map(function(nn,i){return '<circle cx="'+nn[0]+'" cy="'+nn[1]+'" r="'+(i===3?4:3)+'" fill="'+col+'"/>';}).join(''));}
+    if(kind==='dots'){var g='';for(var i2=0;i2<3;i2++)for(var j2=0;j2<3;j2++){g+='<circle cx="'+(8+i2*(sz-16)/2)+'" cy="'+(8+j2*(sz-16)/2)+'" r="2.4" fill="'+col+'"/>';}return wrap(sz,g);}
+    /* arc */
+    return wrap(sz,'<path d="M'+(c-r)+','+c+' A'+r+' '+r+' 0 0 1 '+(c+r)+','+c+'" fill="none" stroke="'+col+'" stroke-width="'+sw+'" stroke-linecap="round"/><circle cx="'+(c+r)+'" cy="'+c+'" r="3.5" fill="'+col+'"/>');
+  }
+  var KINDS=['ring','concentric','dashring','tri','plus','hex','sine','cluster','dots','arc'];
+  var COLS=['rgba(255,122,26,.6)','rgba(230,53,37,.5)','rgba(194,103,45,.6)','rgba(255,193,30,.6)'];
+  var ANIM=['floaty','spin-slow','spin-rev'];
+  var decors=[];
+  document.querySelectorAll('section').forEach(function(sec,si){
+    var h=sec.offsetHeight, cnt=4;
+    for(var k=0;k<cnt;k++){
+      var sd=si*13+k*3+1;
+      var kind=KINDS[Math.floor(rnd(sd)*KINDS.length)];
+      var sz=42+Math.floor(rnd(sd+1)*64);
+      var col=COLS[Math.floor(rnd(sd+2)*COLS.length)];
+      var gut=rnd(sd+3)<0.5;
+      var left=gut?(1+rnd(sd+4)*9):(86+rnd(sd+4)*11);
+      var top=Math.min(h-sz-30, 50+rnd(sd+5)*(h-120));
+      var depth=0.15+rnd(sd+6)*0.5;
+      var el=document.createElement('div');
+      el.className='decor '+ANIM[Math.floor(rnd(sd+7)*ANIM.length)];
+      el.style.left=left.toFixed(1)+'%'; el.style.top=top.toFixed(0)+'px';
+      el.style.opacity=(0.3+rnd(sd+8)*0.35).toFixed(2);
+      el.innerHTML=decorSVG(kind,sz,col);
+      sec.appendChild(el);
+      var rect=el.getBoundingClientRect();
+      decors.push({el:el,base:rect.top+scrollY+sz/2,depth:depth});
+    }
+  });
+  /* title flourishes under each section heading */
+  document.querySelectorAll('.s-title').forEach(function(t){
+    var f=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    f.setAttribute('class','title-flourish');f.setAttribute('width','150');f.setAttribute('height','16');f.setAttribute('viewBox','0 0 150 16');f.setAttribute('aria-hidden','true');
+    f.innerHTML='<line x1="0" y1="8" x2="104" y2="8" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round"/><circle cx="120" cy="8" r="6" fill="none" stroke="url(#lineGrad)" stroke-width="2"/><circle cx="120" cy="8" r="2.4" fill="#FF7A1A"><animate attributeName="r" values="2.4;3.8;2.4" dur="2.2s" repeatCount="indefinite"/></circle><line x1="134" y1="8" x2="150" y2="8" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round" opacity=".5"/>';
+    t.parentNode.insertBefore(f,t.nextSibling);
+  });
+  /* parallax for decor (throttled) */
+  if(!reduce){
+    var ticking=false;
+    function px(){var vh=innerHeight;for(var i=0;i<decors.length;i++){var o=decors[i];var rel=((o.base-scrollY)-vh/2)/vh;o.el.style.transform='translateY('+(rel*46*o.depth).toFixed(1)+'px)';}ticking=false;}
+    addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(px);}},{passive:true});
+    px();
+  }
+})();
+
+/* ============ CLICK EMBER BURSTS + CURSOR TRAIL + LETTER IGNITE ============ */
+(function(){
+  if(reduce)return;
+  var EMB=["#FFC11E","#FF9A1A","#FF7A1A","#E63525","#C2672D"];
+  /* click burst anywhere */
+  addEventListener("pointerdown",function(e){
+    for(var k=0;k<12;k++){
+      var d=document.createElement("span");d.className="burst-sp";
+      var a=Math.random()*6.283,r=30+Math.random()*70;
+      d.style.left=(e.clientX-3)+"px";d.style.top=(e.clientY-3)+"px";
+      d.style.background=EMB[k%EMB.length];
+      d.style.setProperty("--dx",(Math.cos(a)*r).toFixed(0)+"px");
+      d.style.setProperty("--dy",(Math.sin(a)*r-22).toFixed(0)+"px");
+      document.body.appendChild(d);
+      setTimeout(function(el){return function(){el.remove();};}(d),720);
+    }
+  });
+  /* light global cursor ember trail (throttled) */
+  var last=0;
+  addEventListener("pointermove",function(e){
+    var now=performance.now();if(now-last<46)return;last=now;
+    var d=document.createElement("span");d.className="trail-dot";
+    d.style.left=(e.clientX-2)+"px";d.style.top=(e.clientY-2)+"px";
+    d.style.background=EMB[(Math.random()*EMB.length)|0];
+    document.body.appendChild(d);
+    setTimeout(function(el){return function(){el.remove();};}(d),820);
+  },{passive:true});
+  /* hero name: split letters so each ignites on hover */
+  var h=document.querySelector("#hero h1");
+  if(h){
+    function split(node){
+      [...node.childNodes].forEach(function(ch){
+        if(ch.nodeType===3){
+          var frag=document.createDocumentFragment();
+          ch.textContent.split("").forEach(function(c){
+            if(c===" "){frag.appendChild(document.createTextNode(" "));return;}
+            var sp=document.createElement("span");sp.className="ltr";sp.textContent=c;frag.appendChild(sp);
+          });
+          node.replaceChild(frag,ch);
+        } else if(ch.nodeType===1){split(ch);}
+      });
+    }
+    split(h);
+  }
+})();
+</script>
 </body>
 </html>
-
